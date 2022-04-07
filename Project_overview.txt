@@ -1,0 +1,30 @@
+
+
+// DEVELOPMENT IDEAS:
+ 1. Show on the main page diferent options by default: Cook in 30 minutes, dish types (italian, thai, american, jamapese), health labels, picks of the day, vegetarian. Besides that, it should display different options to go straight to one specific type of food. (like button for italian...).
+
+ 1.1 to get random popular recipes it is possible to use "random" parameter.
+
+ 2. work woth "react-icons", local storage, sliders with "react-splide", "framer-motion" (effects like fade out and in  when changing pages), "react-router" for pagination
+
+ 3. When clicking on the logo of the app, it goes to home page.
+
+
+ HOME PAGE:
+ 1. slider with popular recipes.
+ 2. form for searching
+ 3. icon / name of the app on top-left corner. When clicked it should go back to home.
+ 4. Besides the form, it should display links with for example dishtypes, health labels, to facilitate the search.
+ 5. If there are multiple sliders, the size of the images may vary from one slider to another.
+
+ SEARCH RESULTS:
+ 1. 
+
+ RECIPE PAGE:
+ 1. It should display the instructions, the ingredientes, and nutrition data. 
+
+ 
+
+
+ // EXAMPLE TO SHOW NUTRITIONAL INFORMATION
+// https://www.edamam.com/results/recipe/?recipe=citrus-roasted-chicken-d81795fb677ba4f12ab1a104e10aac98/chicken/?search=591-722-cal
