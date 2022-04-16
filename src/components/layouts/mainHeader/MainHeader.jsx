@@ -1,7 +1,8 @@
 import React from "react";
 import classes from "./MainHeader.module.css";
-import InputSearch from "./InputSearch";
+import NavLinks from "./NavLinks";
 import LinksSocialNet from "./LinksSocialNet";
+import InputSearch from "./InputSearch";
 
 const MainHeader = () => {
    return (
@@ -10,25 +11,10 @@ const MainHeader = () => {
             <div className={classes.container_logoBrand}>
                <span>cook&food</span>
             </div>
-            <InputSearch />
+            <NavLinks />
             <LinksSocialNet />
          </div>
-         <nav className={classes.nav}>
-            <ul>
-               <li>
-                  <a href="#">Home</a>
-               </li>
-               <li>
-                  <a href="#">About</a>
-               </li>
-               <li>
-                  <a href="#">Recipes</a>
-               </li>
-               <li>
-                  <a href="#">Contact</a>
-               </li>
-            </ul>
-         </nav>
+         <InputSearch />
       </header>
    );
 };

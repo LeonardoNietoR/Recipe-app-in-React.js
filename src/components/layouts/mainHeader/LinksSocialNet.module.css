@@ -2,7 +2,7 @@
    width: 15rem;
    height: auto;
    color: #fff;
-   /* background-color: rgb(125, 119, 119); */
+   background-color: rgb(91, 81, 81);
 }
 
 .container_socialNetworkLinks ul {
@@ -27,6 +27,7 @@
 .container_socialNetworkLinks li a {
    position: relative;
    color: #eee;
+
    font-size: 1.5rem;
 }
 

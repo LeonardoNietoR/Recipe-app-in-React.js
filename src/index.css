@@ -1,3 +1,14 @@
+:root {
+   --font-titles-1: "Times New Roman", Times, serif;
+   --font-titles-2: "Times New Roman", Times, serif;
+   --font-paragraph-1: Arial, Helvetica, sans-serif;
+
+   --color-brand-green-1: rgb(78, 188, 30);
+
+   --color-white: #fff;
+   --color-black: #000;
+}
+
 *,
 *::after,
 *::before {
@@ -12,5 +23,15 @@ html {
 
 body {
    box-sizing: border-box;
-   background-color: rgb(144, 161, 118);
+   background-color: rgb(207, 188, 16);
+}
+
+main {
+   background-color: green;
+}
+
+section {
+   background-color: aquamarine;
+   width: 80%;
+   margin: 0 auto;
 }
