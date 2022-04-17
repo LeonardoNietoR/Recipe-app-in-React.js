@@ -51,26 +51,42 @@ const SliderHomePage = () => {
       fetchMeals();
    }, []);
 
+   const defineSummaryText = (text) => {
+      // regex1: match all characters until first point. To shorten string.
+      const regex1 = /.+?\./;
+      const filterText = text.match(regex1);
+      // regex2: match all html tags inside the string to delete them.
+      const regex2 = /<.+?>/g;
+      const finalText = `${filterText[0]}..`.replace(regex2, "");
+
+      return finalText;
+   };
+
    const imagesSlider = recipeData.map((rec, i) => (
       <SplideSlide key={Math.random()}>
-         <a href="#" className={classes.container_card}>
+         <div className={classes.container_card}>
             <img className={classes.img} src={rec.image} alt={`Image ${i}`} />
             <div className={classes.img_filter}></div>
             <div className={classes.container_details}>
                <span className={classes.img_title}>{rec.title}</span>
-               <span className={classes.time}>
-                  <BiTime /> {rec.time} minutes
-               </span>
 
-               <span className={classes.likes}>
-                  <BsSuitHeartFill />
-                  <BsSuitHeart />
-                  {rec.likes}
-               </span>
+               {/* <p className={classes.img_summary}>
+                  {defineSummaryText(rec.summary)}
+               </p> */}
+               <div className={classes.container_timeLikes}>
+                  <span className={classes.time}>
+                     <BiTime /> {rec.time} min
+                  </span>
 
-               <p className={classes.img_summary}>{rec.summary}</p>
+                  <span className={classes.likes}>
+                     {/* <BsSuitHeartFill /> */}
+                     {/* <BsSuitHeart /> */}
+                     <BiLike />
+                     {rec.likes}
+                  </span>
+               </div>
             </div>
-         </a>
+         </div>
       </SplideSlide>
    ));
 

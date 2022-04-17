@@ -7,6 +7,9 @@
 
    --color-white: #fff;
    --color-black: #000;
+   --color-grey-light: #eee;
+   --color-grey-medium: #bbb;
+   --color-grey-dark: #999;
 }
 
 *,
@@ -23,15 +26,17 @@ html {
 
 body {
    box-sizing: border-box;
-   background-color: rgb(207, 188, 16);
+   /* background-color: rgb(207, 188, 16); */
+   background-color: var(--color-grey-light);
 }
 
 main {
-   background-color: green;
+   /* background-color: green; */
+   background-color: transparent;
 }
 
 section {
-   background-color: aquamarine;
-   width: 80%;
+   /* background-color: aquamarine; */
+   width: 90%;
    margin: 0 auto;
 }
