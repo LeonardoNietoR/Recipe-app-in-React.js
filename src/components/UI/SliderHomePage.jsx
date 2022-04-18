@@ -58,7 +58,7 @@ const SliderHomePage = () => {
 
    const defineSummaryText = (text) => {
       // regex1: match all characters until the space number 20. Shorten string
-      const regex1 = /^(.+? ){20}/g;
+      const regex1 = /^(.+? ){21}/g;
       const filterText = text.match(regex1);
       // regex2: match all html tags inside the string to delete them.
       const regex2 = /<.+?>/g;
@@ -79,14 +79,14 @@ const SliderHomePage = () => {
                <div className={classes.img_filter}></div>
                <div className={classes.container_timeLikes}>
                   <span className={classes.time}>
-                     <BiTime /> {rec.time} min
+                     <BiTime /> <span>{rec.time} min</span>
                   </span>
 
                   <span className={classes.likes}>
                      {/* <BsSuitHeartFill /> */}
                      {/* <BsSuitHeart /> */}
                      <BiLike />
-                     {rec.likes}
+                     <span>{rec.likes}</span>
                   </span>
                </div>
             </div>

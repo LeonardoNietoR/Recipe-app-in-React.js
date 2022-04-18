@@ -61,23 +61,20 @@
 }
 
 .img_title {
-   /* font-family: var(--font-titles-2); */
    width: 90%;
    font-family: var(--font-paragraph-1);
    font-size: 2.2rem;
    border-bottom: 1px solid rgb(145, 144, 144);
    margin: 1rem 0;
    padding: 0.3rem 0;
-   /* color: var(--color-black); */
 }
 
 .container_timeLikes {
    position: absolute;
-   bottom: 5%;
-   right: 4%;
-   /* align-self: flex-end; */
+   bottom: 4%;
+   right: 3%;
    width: 50%;
-   background-color: aqua;
+   /* background-color: aqua; */
    color: #fff;
    display: flex;
    justify-content: flex-end;
@@ -86,14 +83,19 @@
 .likes,
 .time {
    width: 10rem;
-   background-color: red;
-   border: 1px solid #000;
-   font-size: 2rem;
-   font-weight: 700;
-   text-align: end;
+   background-color: rgba(255, 0, 0, 0.612);
+   /* border: 1px solid #000; */
+   padding: 0.2rem;
+   font-size: 1.8rem;
+   font-weight: 400;
+   display: flex;
+   justify-content: center;
+   font-family: var(--font-paragraph-1);
+}
 
-   /* margin-left: 2rem; */
-   /* color: #222; */
+.likes span,
+.time span {
+   margin-left: 0.5rem;
 }
 
 .img_summary {
