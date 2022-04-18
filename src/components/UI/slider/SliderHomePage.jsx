@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./SliderHomePage.module.css";
+import useHttp from "../../../hooks/use-http";
 import { BiTime, BiLike } from "react-icons/bi";
 import {
    BsSuitHeartFill,
@@ -10,51 +11,38 @@ import {
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
-const APP_KEY = process.env.REACT_APP_API_KEY.slice(0, -1);
-
-const SliderHomePage = () => {
-   const [recipeData, setRecipeData] = useState([]);
-
-   console.log(recipeData);
-   const fetchMeals = async () => {
-      const storage = localStorage.getItem("images");
-
-      if (storage) {
-         setRecipeData(JSON.parse(storage));
-      } else {
-         try {
-            const result = await fetch(
-               `https://api.spoonacular.com/recipes/random?number=10&apiKey=${APP_KEY}`
-            );
-            const data = await result.json();
-
-            console.log(data.recipes);
-            //   need to extract : id,title, image, aggregateLikes, ready in minutes, summary
-            const dataRecipe = data.recipes.reduce((acc, recipe) => {
-               recipe.image !== undefined &&
-                  acc.push({
-                     id: recipe.id,
-                     title: recipe.title,
-                     image: recipe.image,
-                     summary: recipe.summary,
-                     likes: recipe.aggregateLikes,
-                     time: recipe.readyInMinutes,
-                  });
-               return acc;
-            }, []);
-
-            localStorage.setItem("images", JSON.stringify(dataRecipe));
-
-            setRecipeData(dataRecipe);
-         } catch (err) {
-            console.log(err);
-         }
-      }
-   };
+const SliderHomePage = (props) => {
+   const [dataRecipe, setDataRecipe] = useState([]);
+   const { fetchMeals } = useHttp();
 
    useEffect(() => {
-      fetchMeals();
-   }, []);
+      const transformData = (dataRecipe) => {
+         console.log(dataRecipe);
+         const dataRecip = dataRecipe.reduce((acc, recipe) => {
+            recipe.image !== undefined &&
+               acc.push({
+                  id: recipe.id,
+                  title: recipe.title,
+                  image: recipe.image,
+                  summary: recipe.summary,
+                  likes: recipe.aggregateLikes,
+                  time: recipe.readyInMinutes,
+               });
+            return acc;
+         }, []);
+
+         localStorage.setItem("images", JSON.stringify(dataRecip));
+         setDataRecipe(dataRecip);
+      };
+
+      fetchMeals(
+         {
+            url: "https://api.spoonacular.com/recipes/random?number=10",
+            locStorage: props.locStorage,
+         },
+         transformData
+      );
+   }, [fetchMeals]);
 
    const defineSummaryText = (text) => {
       // regex1: match all characters until the space number 20. Shorten string
@@ -67,7 +55,7 @@ const SliderHomePage = () => {
       return finalText;
    };
 
-   const imagesSlider = recipeData.map((rec, i) => (
+   const imagesSlider = dataRecipe.map((rec, i) => (
       <SplideSlide key={rec.id}>
          <div className={classes.container_card}>
             <div className={classes.container_img}>
