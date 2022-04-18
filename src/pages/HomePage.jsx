@@ -6,7 +6,7 @@ const HomePage = () => {
    return (
       <section>
          <div className={classes.collection_1}>
-            <h2>Picks of the day</h2>
+            <h2>Popular picks</h2>
             <SliderHomePage />
          </div>
          <div className={classes.collection_2}>

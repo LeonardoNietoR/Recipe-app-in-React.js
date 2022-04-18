@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import classes from "./SliderHomePage.module.css";
 import { BiTime, BiLike } from "react-icons/bi";
-import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
+import {
+   BsSuitHeartFill,
+   BsSuitHeart,
+   BsBookmark,
+   BsBookmarkFill,
+} from "react-icons/bs";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
@@ -52,12 +57,12 @@ const SliderHomePage = () => {
    }, []);
 
    const defineSummaryText = (text) => {
-      // regex1: match all characters until first point. To shorten string.
-      const regex1 = /.+?\./;
+      // regex1: match all characters until the space number 20. Shorten string
+      const regex1 = /^(.+? ){20}/g;
       const filterText = text.match(regex1);
       // regex2: match all html tags inside the string to delete them.
       const regex2 = /<.+?>/g;
-      const finalText = `${filterText[0]}..`.replace(regex2, "");
+      const finalText = `${filterText[0].trim()}...`.replace(regex2, "");
 
       return finalText;
    };
@@ -65,14 +70,13 @@ const SliderHomePage = () => {
    const imagesSlider = recipeData.map((rec, i) => (
       <SplideSlide key={Math.random()}>
          <div className={classes.container_card}>
-            <img className={classes.img} src={rec.image} alt={`Image ${i}`} />
-            <div className={classes.img_filter}></div>
-            <div className={classes.container_details}>
-               <span className={classes.img_title}>{rec.title}</span>
-
-               {/* <p className={classes.img_summary}>
-                  {defineSummaryText(rec.summary)}
-               </p> */}
+            <div className={classes.container_img}>
+               <img
+                  className={classes.img}
+                  src={rec.image}
+                  alt={`Image ${i}`}
+               />
+               <div className={classes.img_filter}></div>
                <div className={classes.container_timeLikes}>
                   <span className={classes.time}>
                      <BiTime /> {rec.time} min
@@ -86,6 +90,15 @@ const SliderHomePage = () => {
                   </span>
                </div>
             </div>
+            <div className={classes.container_details}>
+               <span className={classes.img_title}>{rec.title}</span>
+               <p className={classes.img_summary}>
+                  {defineSummaryText(rec.summary)}
+               </p>
+            </div>
+            <span className={classes.bookmark}>
+               <BsBookmark />
+            </span>
          </div>
       </SplideSlide>
    ));
