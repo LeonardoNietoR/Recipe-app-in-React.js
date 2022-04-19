@@ -1,38 +1,34 @@
 import { useEffect, useState } from "react";
 import classes from "./SliderHomePage.module.css";
 import useHttp from "../../../hooks/use-http";
-import { BiTime, BiLike } from "react-icons/bi";
-import {
-   BsSuitHeartFill,
-   BsSuitHeart,
-   BsBookmark,
-   BsBookmarkFill,
-} from "react-icons/bs";
+import SliderContent from "./SliderContent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 const SliderHomePage = (props) => {
-   const [dataRecipe, setDataRecipe] = useState([]);
+   const [dataRecipes, setDataRecipe] = useState([]);
    const { fetchMeals } = useHttp();
 
    useEffect(() => {
-      const transformData = (dataRecipe) => {
-         console.log(dataRecipe);
-         const dataRecip = dataRecipe.reduce((acc, recipe) => {
-            recipe.image !== undefined &&
-               acc.push({
-                  id: recipe.id,
-                  title: recipe.title,
-                  image: recipe.image,
-                  summary: recipe.summary,
-                  likes: recipe.aggregateLikes,
-                  time: recipe.readyInMinutes,
-               });
-            return acc;
-         }, []);
-
-         localStorage.setItem("images", JSON.stringify(dataRecip));
-         setDataRecipe(dataRecip);
+      const transformData = (dataRec, locStorage = false) => {
+         if (!locStorage) {
+            const recipesData = dataRec.reduce((acc, recipe) => {
+               recipe.image !== undefined &&
+                  acc.push({
+                     id: recipe.id,
+                     title: recipe.title,
+                     image: recipe.image,
+                     summary: recipe.summary,
+                     likes: recipe.aggregateLikes,
+                     time: recipe.readyInMinutes,
+                  });
+               return acc;
+            }, []);
+            setDataRecipe(recipesData);
+            localStorage.setItem(props.locStorage, JSON.stringify(recipesData));
+         } else {
+            setDataRecipe(dataRec);
+         }
       };
 
       fetchMeals(
@@ -44,50 +40,9 @@ const SliderHomePage = (props) => {
       );
    }, [fetchMeals]);
 
-   const defineSummaryText = (text) => {
-      // regex1: match all characters until the space number 20. Shorten string
-      const regex1 = /^(.+? ){21}/g;
-      const filterText = text.match(regex1);
-      // regex2: match all html tags inside the string to delete them.
-      const regex2 = /<.+?>/g;
-      const finalText = `${filterText[0].trim()}...`.replace(regex2, "");
-
-      return finalText;
-   };
-
-   const imagesSlider = dataRecipe.map((rec, i) => (
-      <SplideSlide key={rec.id}>
-         <div className={classes.container_card}>
-            <div className={classes.container_img}>
-               <img
-                  className={classes.img}
-                  src={rec.image}
-                  alt={`Image ${rec.id}`}
-               />
-               <div className={classes.img_filter}></div>
-               <div className={classes.container_timeLikes}>
-                  <span className={classes.time}>
-                     <BiTime /> <span>{rec.time} min</span>
-                  </span>
-
-                  <span className={classes.likes}>
-                     {/* <BsSuitHeartFill /> */}
-                     {/* <BsSuitHeart /> */}
-                     <BiLike />
-                     <span>{rec.likes}</span>
-                  </span>
-               </div>
-            </div>
-            <div className={classes.container_details}>
-               <span className={classes.img_title}>{rec.title}</span>
-               <p className={classes.img_summary}>
-                  {defineSummaryText(rec.summary)}
-               </p>
-            </div>
-            <span className={classes.bookmark}>
-               <BsBookmark />
-            </span>
-         </div>
+   const imagesSlider = dataRecipes.map((recipe) => (
+      <SplideSlide key={recipe.id}>
+         <SliderContent data={recipe} />
       </SplideSlide>
    ));
 

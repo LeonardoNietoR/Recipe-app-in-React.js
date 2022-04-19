@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import classes from "./HomePage.module.css";
-import useHttp from "../hooks/use-http";
 import SliderHomePage from "../components/UI/slider/SliderHomePage";
 
 const HomePage = () => {

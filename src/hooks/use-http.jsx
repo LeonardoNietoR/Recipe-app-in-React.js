@@ -15,7 +15,7 @@ const useHttp = () => {
       const storage = localStorage.getItem(`${requestConfig.locStorage}`);
 
       if (storage) {
-         applyData(JSON.parse(storage));
+         applyData(JSON.parse(storage), true);
       } else {
          try {
             const response = await fetch(
@@ -29,6 +29,7 @@ const useHttp = () => {
 
             const data = await response.json();
             console.log(data);
+
             applyData(data.recipes);
          } catch (err) {
             console.log("ERRRRROOOORRR:", err);
