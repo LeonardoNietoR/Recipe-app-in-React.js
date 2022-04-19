@@ -33,7 +33,7 @@ const SliderHomePage = (props) => {
 
       fetchMeals(
          {
-            url: "https://api.spoonacular.com/recipes/random?number=10",
+            url: props.url,
             locStorage: props.locStorage,
          },
          transformData
@@ -42,7 +42,7 @@ const SliderHomePage = (props) => {
 
    const imagesSlider = dataRecipes.map((recipe) => (
       <SplideSlide key={recipe.id}>
-         <SliderContent data={recipe} />
+         <SliderContent data={recipe} numOfSlides={props.numOfSlides} />
       </SplideSlide>
    ));
 
@@ -52,7 +52,7 @@ const SliderHomePage = (props) => {
       gap: "1.5rem",
       drag: "free",
       width: "100%",
-      perPage: 3,
+      perPage: props.numOfSlides,
       wheel: true,
    };
 

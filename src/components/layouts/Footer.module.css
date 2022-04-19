@@ -1,0 +1,10 @@
+.footer {
+   background-color: rgb(76, 205, 76);
+   width: 100%;
+   height: 40rem;
+}
+
+.paragraph {
+   font-size: 2rem;
+   color: #000;
+}

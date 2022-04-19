@@ -26,7 +26,6 @@ html {
 
 body {
    box-sizing: border-box;
-   /* background-color: rgb(207, 188, 16); */
    background-color: var(--color-grey-light);
 }
 

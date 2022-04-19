@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./SliderContent.module.css";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
