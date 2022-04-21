@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./SliderHomePage.module.css";
-import useHttp from "../../../hooks/use-http";
+import useHttp from "../../hooks/use-http";
 import SliderContent from "./SliderContent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";

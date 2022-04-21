@@ -15,6 +15,8 @@ Spoonacular API: https://spoonacular.com/food-api/docs
  5. There must be minimun 3 page types: home page, page for displaying the search results and the page for the specific recipe with indtructions, ingresients and nutritional information.
 
  6. When clicking on one of the images of the slider, it should go to the detail-page and describe that recipe.
+
+ 7. In the recipe page a section to display a list of tags.
 	
 
 

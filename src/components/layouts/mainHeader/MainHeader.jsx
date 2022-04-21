@@ -8,13 +8,17 @@ const MainHeader = () => {
    return (
       <header className={classes.header}>
          <div className={classes.upperBlock}>
-            <div className={classes.container_logoBrand}>
-               <span>cook&food</span>
+            <div className={classes.container_brandName}>
+               <span>cook</span>
+               <span>&</span>
+               <span>food</span>
             </div>
-            <NavLinks />
+            <InputSearch />
             <LinksSocialNet />
          </div>
-         <InputSearch />
+         <div className={classes.lowerBlock}>
+            <NavLinks />
+         </div>
       </header>
    );
 };

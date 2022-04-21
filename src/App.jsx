@@ -1,6 +1,7 @@
 import "./App.css";
 import Layout from "./components/layouts/Layout";
 import HomePage from "./pages/HomePage";
+import ResultsPage from "./pages/ResultsPage";
 // import { Switch, Route, Redirect } from "react-router-dom";
 
 // start date: April 3rd 2022
@@ -18,8 +19,9 @@ function App() {
 
    return (
       <Layout>
-         <p>Hello from app component</p>
-         <HomePage />
+         <ResultsPage />
+         {/* <HomePage /> */}
+
          {/* <Switch>
             <Route path="/">
                <Redirect to="/home" />

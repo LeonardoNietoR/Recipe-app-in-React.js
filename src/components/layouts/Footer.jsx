@@ -5,7 +5,7 @@ const Footer = () => {
    return (
       <div className={classes.footer}>
          <p className={classes.paragraph}>
-            &copy; Leonardo Nieto all rights reserved
+            &copy; Copyright by Leonardo Nieto. All rights reserved
          </p>
       </div>
    );

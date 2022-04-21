@@ -6,7 +6,7 @@ import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const defineSummaryText = (text) => {
    // regex1: match all characters until the space # 20. To limit the string
-   const regex1 = /^(.+? ){21}/g;
+   const regex1 = /^(.+? ){16}/g;
    const filterText = text.match(regex1);
    // regex2: match all html tags inside the string to delete them.
    const regex2 = /<.+?>/g;

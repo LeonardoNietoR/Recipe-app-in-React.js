@@ -1,18 +1,29 @@
 .form {
-   background-color: aqua;
+   height: 100%;
+   /* background-color: aqua; */
    display: flex;
    justify-content: center;
+   align-items: center;
 }
 
 .input {
    width: 45rem;
    height: 4rem;
+   background-color: rgb(237, 231, 228);
+   border: none;
+   outline: none;
+   font-family: var(--font-paragraph-1);
+   font-size: 2rem;
+   padding-left: 2rem;
+   border: 1px solid #bbb;
+   border-radius: 5px;
 }
 
 .button {
    width: 4rem;
    height: 4rem;
-   background-color: red;
+   background-color: rgb(232, 145, 74);
    font-size: 2.2rem;
    color: #333;
+   border: none;
 }

@@ -1,24 +1,48 @@
 .header {
    width: 100vw;
-   height: 13rem;
+   height: var(--height-header);
    background-color: rgb(239, 145, 105);
+   position: fixed;
+   z-index: 10;
 }
+
+/* do it with grid. */
 
 .upperBlock {
    width: 100%;
-   background-color: var(--color-brand-green-1);
+   height: 70%;
+   background: linear-gradient(
+         160deg,
+         rgba(255, 255, 255, 0.97) 10%,
+         rgba(255, 255, 255, 0.644)
+      ),
+      url(../../../../project_imgs/chinh-le-duc-vuDXJ60mJOA-unsplash.jpg);
+
+   background-size: cover;
+   background-position: 30% 25%;
    display: flex;
    justify-content: space-around;
    align-items: center;
 }
 
-.container_logoBrand {
+.container_brandName {
    width: 20rem;
-   height: 8rem;
-   background-color: rgb(0, 132, 255);
+   font-family: var(--font-titles-1);
+   font-weight: 400;
 }
 
-.container_logoBrand span {
-   font-size: 4rem;
-   color: red;
+.container_brandName span {
+   /* font-family: inherit; */
+   font-size: 5rem;
+   color: var(--color-brand-green-dark);
+}
+
+.container_brandName span:nth-of-type(2) {
+   color: var(--color-brand-brown);
+}
+
+.lowerBlock {
+   height: 30%;
+   background-color: var(--color-brand-green-light);
+   position: relative;
 }

@@ -1,11 +1,13 @@
 .collection {
-   margin-bottom: 2rem;
+   margin-bottom: 4rem;
 }
 
 .collection h2 {
-   color: red;
-   font-size: var(--font-titles-2);
-   font-size: 2.5rem;
+   color: var(--color-titles-1);
+   font-family: var(--font-titles-1);
+   font-weight: 400;
+   /* text-transform: uppercase; */
+   font-size: 4rem;
    /* background-color: aqua; */
    margin-bottom: 1.5rem;
    border-bottom: 1px solid #ccc;

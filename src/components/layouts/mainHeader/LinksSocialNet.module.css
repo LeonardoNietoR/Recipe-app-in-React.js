@@ -2,7 +2,7 @@
    width: 15rem;
    height: auto;
    color: #fff;
-   background-color: rgb(91, 81, 81);
+   /* background-color: rgb(91, 81, 81); */
 }
 
 .container_socialNetworkLinks ul {
@@ -19,9 +19,9 @@
    justify-content: center;
    align-items: center;
 }
-.container_socialNetworkLinks li:active {
-   /* transform: scale(0.97); */
-   background-color: rgb(124, 150, 130);
+
+.container_socialNetworkLinks li:hover {
+   background-color: rgb(93, 113, 98);
 }
 
 .container_socialNetworkLinks li a {

@@ -9,10 +9,10 @@ const NavLinks = () => {
                <a href="#">Home</a>
             </li>
             <li>
-               <a href="#">About</a>
+               <a href="#">Recipes</a>
             </li>
             <li>
-               <a href="#">Recipes</a>
+               <a href="#">Bookmarks</a>
             </li>
             <li>
                <a href="#">Contact</a>

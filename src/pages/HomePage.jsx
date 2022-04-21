@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./HomePage.module.css";
-import SliderHomePage from "../components/UI/slider/SliderHomePage";
+import SliderHomePage from "../components/slider/SliderHomePage";
 
 const HomePage = () => {
    const slider1Url = "https://api.spoonacular.com/recipes/random?number=10";

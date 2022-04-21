@@ -15,7 +15,7 @@ const InputSearch = (props) => {
          <input
             className={classes.input}
             type="text"
-            placeholder="ingredients, dish, keyword"
+            placeholder="Search a recipe"
          />
          <button className={classes.button}>
             <ImSearch />

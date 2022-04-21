@@ -1,15 +1,24 @@
-:root {
-   --font-titles-1: "Times New Roman", Times, serif;
-   --font-titles-2: "Times New Roman", Times, serif;
-   --font-paragraph-1: Arial, Helvetica, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Cardo&family=Cormorant+Garamond&family=Cormorant:wght@400;600&family=EB+Garamond&family=Lato&family=Merriweather&family=Montserrat&family=Open+Sans&family=PT+Sans&family=PT+Serif&family=Raleway:ital@1&display=swap");
 
-   --color-brand-green-1: rgb(78, 188, 30);
+:root {
+   --font-titles-1: "Cardo", serif;
+   --font-paragraph-1: "Lato", sans-serif;
+
+   --color-brand-green-light: rgb(25, 175, 37);
+   --color-brand-green-dark: rgb(33, 103, 22);
+   --color-brand-brown: rgb(103, 45, 22);
+   --color-brand-red: red;
+
+   --color-titles-1: rgb(84, 46, 46);
+   --color-paragraph-1: rgb(80, 40, 40);
 
    --color-white: #fff;
    --color-black: #000;
    --color-grey-light: #eee;
    --color-grey-medium: #bbb;
    --color-grey-dark: #999;
+
+   --height-header: 15rem;
 }
 
 *,
@@ -27,15 +36,18 @@ html {
 body {
    box-sizing: border-box;
    background-color: var(--color-grey-light);
+   position: relative;
 }
 
 main {
    /* background-color: green; */
    background-color: transparent;
+   /* position: absolute;
+   top: calc(var(--height-header) + 2rem); */
 }
 
 section {
-   /* background-color: aquamarine; */
+   background-color: aquamarine;
    width: 90%;
    margin: 0 auto;
 }
