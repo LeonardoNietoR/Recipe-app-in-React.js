@@ -2,6 +2,7 @@ import "./App.css";
 import Layout from "./components/layouts/Layout";
 import HomePage from "./pages/HomePage";
 import ResultsPage from "./pages/ResultsPage";
+import RecipeProvider from "./store/RecipeProvider";
 // import { Switch, Route, Redirect } from "react-router-dom";
 
 // start date: April 3rd 2022
@@ -18,19 +19,21 @@ function App() {
    // const matching = text.match(regex);
 
    return (
-      <Layout>
-         <ResultsPage />
-         {/* <HomePage /> */}
+      <RecipeProvider>
+         <Layout>
+            {/* <HomePage /> */}
+            <ResultsPage />
 
-         {/* <Switch>
+            {/* <Switch>
             <Route path="/">
-               <Redirect to="/home" />
+            <Redirect to="/home" />
             </Route>
             <Route path="/home">
-               <HomePage />
+            <HomePage />
             </Route>
          </Switch> */}
-      </Layout>
+         </Layout>
+      </RecipeProvider>
    );
 }
 

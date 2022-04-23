@@ -8,7 +8,7 @@ const useHttp = () => {
    const [isLoading, setIsLoading] = useState(false);
    const [error, setError] = useState(null);
 
-   const fetchMeals = useCallback(async (requestConfig, applyData) => {
+   const httpRequest = useCallback(async (requestConfig, applyData) => {
       // setIsLoading(true);
       setError(null);
 
@@ -24,13 +24,13 @@ const useHttp = () => {
 
             console.log(response);
             if (!response.ok) {
-               throw new Error("Request failed");
+               throw new Error(`Request failed. Error ${response.status}`);
             }
 
             const data = await response.json();
             console.log(data);
 
-            applyData(data.recipes);
+            applyData(data);
          } catch (err) {
             console.log("ERRRRROOOORRR:", err);
             setError(err.message);
@@ -40,7 +40,8 @@ const useHttp = () => {
    }, []);
 
    return {
-      fetchMeals,
+      httpRequest,
+      error,
    };
 };
 

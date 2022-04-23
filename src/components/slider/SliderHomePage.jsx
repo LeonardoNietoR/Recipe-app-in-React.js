@@ -7,12 +7,12 @@ import "@splidejs/react-splide/css";
 
 const SliderHomePage = (props) => {
    const [dataRecipes, setDataRecipe] = useState([]);
-   const { fetchMeals } = useHttp();
+   const { httpRequest } = useHttp();
 
    useEffect(() => {
       const transformData = (dataRec, locStorage = false) => {
          if (!locStorage) {
-            const recipesData = dataRec.reduce((acc, recipe) => {
+            const recipesData = dataRec.recipes.reduce((acc, recipe) => {
                recipe.image !== undefined &&
                   acc.push({
                      id: recipe.id,
@@ -31,14 +31,14 @@ const SliderHomePage = (props) => {
          }
       };
 
-      fetchMeals(
+      httpRequest(
          {
             url: props.url,
             locStorage: props.locStorage,
          },
          transformData
       );
-   }, [fetchMeals]);
+   }, [httpRequest]);
 
    const imagesSlider = dataRecipes.map((recipe) => (
       <SplideSlide key={recipe.id}>
