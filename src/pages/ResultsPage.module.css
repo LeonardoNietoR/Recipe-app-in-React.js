@@ -8,7 +8,7 @@
    /* background-color: rgb(156, 48, 48); */
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   gap: 2rem;
+   gap: 3rem;
 }
 
 .ul li {
