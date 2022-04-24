@@ -56,9 +56,18 @@ const SliderHomePage = (props) => {
       wheel: true,
    };
 
+   const style = {
+      // backgroundColor: "green",
+      overflowY: "visible",
+   };
+
    return (
       <div className={classes.container_slider}>
-         <Splide options={optionsSlide} aria-label="My Favorite Images">
+         <Splide
+            style={style}
+            options={optionsSlide}
+            aria-label="My Favorite Images"
+         >
             {imagesSlider}
          </Splide>
       </div>

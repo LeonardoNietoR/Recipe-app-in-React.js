@@ -3,11 +3,11 @@ import classes from "./Footer.module.css";
 
 const Footer = () => {
    return (
-      <div className={classes.footer}>
+      <footer className={classes.footer}>
          <p className={classes.paragraph}>
             &copy; Copyright by Leonardo Nieto. All rights reserved
          </p>
-      </div>
+      </footer>
    );
 };
 

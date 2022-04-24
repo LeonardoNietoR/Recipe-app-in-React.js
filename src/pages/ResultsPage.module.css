@@ -1,0 +1,16 @@
+.section p {
+   font-size: 3rem;
+   color: red;
+}
+
+.ul {
+   width: 100%;
+   /* background-color: rgb(156, 48, 48); */
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 2rem;
+}
+
+.ul li {
+   list-style-type: none;
+}

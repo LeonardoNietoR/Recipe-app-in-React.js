@@ -1,20 +1,32 @@
 import { useEffect, useContext, useState } from "react";
+import classes from "./ResultsPage.module.css";
 import useHttp from "../hooks/use-http";
 import RecipeContext from "../store/recipe-context";
+import DisplayResults from "../components/resultsPage/DisplayResults";
+
+const NUMBER_OF_RESULTS = 12;
+
+// url: `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${searchWord}`,
+// url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`,
 
 const ResultsPage = () => {
    const { httpRequest, error } = useHttp();
-   const [recipesData, setRecipesData] = useState();
+   const [recipesData, setRecipesData] = useState([]);
+   const [resultsNotFound, setResultsNotFound] = useState(false);
    const { searchValue } = useContext(RecipeContext);
 
    console.log(recipesData);
 
    useEffect(() => {
-      const transformData = ({ results }) => {
-         console.log(results);
-         if (results && results.length > 0) {
-            console.log("there are items in the array");
-            const dataRec = results.reduce((acc, recipe) => {
+      const transformData = (dataRecipes, locStorage = false) => {
+         if (locStorage) {
+            console.log("if local storage");
+            setRecipesData(dataRecipes);
+            return;
+         }
+         if (!locStorage && dataRecipes && dataRecipes.length > 0) {
+            console.log("if no local storage and there is data recipes");
+            const dataRecipesFiltered = dataRecipes.reduce((acc, recipe) => {
                recipe.image !== undefined &&
                   acc.push({
                      id: recipe.id,
@@ -27,31 +39,57 @@ const ResultsPage = () => {
                return acc;
             }, []);
 
-            setRecipesData(dataRec);
-         } else {
-            console.log("no results found");
+            localStorage.setItem(
+               "results-page",
+               JSON.stringify(dataRecipesFiltered)
+            );
+            setRecipesData(dataRecipesFiltered);
+            return;
          }
+
+         setResultsNotFound(true);
       };
-      if (searchValue && searchValue.trim() !== "") {
-         httpRequest(
-            {
-               url: `https://api.spoonacular.com/reipes/complexSearch?query=${searchValue}&addRecipeInformation=true&number=10`,
-               // url: `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${searchWord}`,
-               // url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`,
-            },
-            transformData
-         );
-         console.log(searchValue);
-      }
-   }, [httpRequest, searchValue]);
+      // if (searchValue && searchValue.trim() !== "") {
+      httpRequest(
+         {
+            url: `https://api.spoonacular.com/recipes/complexSearch?query=${"pasta"}&addRecipeInformation=true&number=${NUMBER_OF_RESULTS}`,
+            locStorage: "results-page",
+         },
+         transformData
+      );
+      // console.log(searchValue);
+      // }
+   }, [httpRequest]);
 
-   let message;
-   if (error) {
-      console.log("we found an eerrrrorrrrrr pa");
-      message = <p>{error}</p>;
-   }
+   const displayData = (
+      <ul className={classes.ul}>
+         {recipesData &&
+            recipesData.map((recipe) => (
+               <li key={recipe.id}>
+                  <DisplayResults
+                     id={recipe.id}
+                     image={recipe.image}
+                     title={recipe.title}
+                     likes={recipe.likes}
+                     time={recipe.time}
+                  />
+               </li>
+            ))}
+      </ul>
+   );
 
-   return <section>{/* <div>{recipesData}</div> */}</section>;
+   let displayContent;
+
+   if (error) displayContent = <p>{error}</p>;
+   if (resultsNotFound && !error)
+      displayContent = (
+         <p>
+            Sorry, we could not find any results for <span>{searchValue}</span>
+         </p>
+      );
+   if (!resultsNotFound && !error) displayContent = displayData;
+
+   return <section className={classes.section}>{displayContent}</section>;
 };
 
 export default ResultsPage;

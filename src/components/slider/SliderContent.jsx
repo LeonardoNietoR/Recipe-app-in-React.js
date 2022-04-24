@@ -1,4 +1,5 @@
 import classes from "./SliderContent.module.css";
+import Card from "../UI/Card";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
@@ -17,7 +18,7 @@ const defineSummaryText = (text) => {
 
 const SliderContent = (props) => {
    return (
-      <div className={classes.container_card}>
+      <Card className={classes.container_card}>
          <div className={classes.container_img}>
             <img
                className={classes.img}
@@ -47,7 +48,7 @@ const SliderContent = (props) => {
          <span className={classes.bookmark}>
             <BsBookmark />
          </span>
-      </div>
+      </Card>
    );
 };
 
