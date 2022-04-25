@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./SliderHomePage.module.css";
 import useHttp from "../../hooks/use-http";
-import SliderContent from "./SliderContent";
+import CardContent from "./CardContent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
@@ -42,7 +42,7 @@ const SliderHomePage = (props) => {
 
    const imagesSlider = dataRecipes.map((recipe) => (
       <SplideSlide key={recipe.id}>
-         <SliderContent data={recipe} numOfSlides={props.numOfSlides} />
+         <CardContent data={recipe} numOfCards={props.numOfSlides} />
       </SplideSlide>
    ));
 

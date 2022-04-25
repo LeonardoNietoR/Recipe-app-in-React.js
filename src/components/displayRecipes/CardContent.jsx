@@ -1,9 +1,7 @@
-import classes from "./SliderContent.module.css";
+import classes from "./CardContent.module.css";
 import Card from "../UI/Card";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
-
-// const NUM_WORDS_PER_PARAGRAPH = 21
 
 const defineSummaryText = (text) => {
    // regex1: match all characters until the space # 20. To limit the string
@@ -16,9 +14,13 @@ const defineSummaryText = (text) => {
    return finalText;
 };
 
-const SliderContent = (props) => {
+const CardContent = (props) => {
    return (
-      <Card className={classes.container_card}>
+      <Card
+         className={`${classes.container_card} ${
+            props.numOfCards === 3 ? classes.container_3cards : ""
+         }`}
+      >
          <div className={classes.container_img}>
             <img
                className={classes.img}
@@ -28,13 +30,18 @@ const SliderContent = (props) => {
             <div className={classes.img_filter}></div>
             <div className={classes.container_timeLikes}>
                <span className={classes.time}>
-                  <BiTime /> <span>{props.data.time} min</span>
+                  <span>
+                     <BiTime />
+                  </span>
+                  <span>{props.data.time}</span> <span>min</span>
                </span>
 
                <span className={classes.likes}>
                   {/* <BsSuitHeartFill /> */}
                   {/* <BsSuitHeart /> */}
-                  <BiLike />
+                  <span>
+                     <BiLike />
+                  </span>
                   <span>{props.data.likes}</span>
                </span>
             </div>
@@ -52,4 +59,4 @@ const SliderContent = (props) => {
    );
 };
 
-export default SliderContent;
+export default CardContent;

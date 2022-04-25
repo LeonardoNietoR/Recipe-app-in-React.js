@@ -2,7 +2,7 @@ import { useEffect, useContext, useState } from "react";
 import classes from "./ResultsPage.module.css";
 import useHttp from "../hooks/use-http";
 import RecipeContext from "../store/recipe-context";
-import DisplayResults from "../components/resultsPage/DisplayResults";
+import CardContent from "../components/displayRecipes/CardContent";
 
 const NUMBER_OF_RESULTS = 12;
 
@@ -24,20 +24,25 @@ const ResultsPage = () => {
             setRecipesData(dataRecipes);
             return;
          }
-         if (!locStorage && dataRecipes && dataRecipes.length > 0) {
-            console.log("if no local storage and there is data recipes");
-            const dataRecipesFiltered = dataRecipes.reduce((acc, recipe) => {
-               recipe.image !== undefined &&
-                  acc.push({
-                     id: recipe.id,
-                     title: recipe.title,
-                     image: recipe.image,
-                     likes: recipe.aggregateLikes,
-                     time: recipe.readyInMinutes,
-                  });
 
-               return acc;
-            }, []);
+         if (!locStorage && dataRecipes && dataRecipes.results.length > 0) {
+            console.log("if no local storage and there is data recipes");
+            const dataRecipesFiltered = dataRecipes.results.reduce(
+               (acc, recipe) => {
+                  recipe.image !== undefined &&
+                     acc.push({
+                        id: recipe.id,
+                        title: recipe.title,
+                        image: recipe.image,
+                        summary: recipe.summary,
+                        likes: recipe.aggregateLikes,
+                        time: recipe.readyInMinutes,
+                     });
+
+                  return acc;
+               },
+               []
+            );
 
             localStorage.setItem(
                "results-page",
@@ -66,13 +71,7 @@ const ResultsPage = () => {
          {recipesData &&
             recipesData.map((recipe) => (
                <li key={recipe.id}>
-                  <DisplayResults
-                     id={recipe.id}
-                     image={recipe.image}
-                     title={recipe.title}
-                     likes={recipe.likes}
-                     time={recipe.time}
-                  />
+                  <CardContent data={recipe} numOfCards={4} />
                </li>
             ))}
       </ul>
