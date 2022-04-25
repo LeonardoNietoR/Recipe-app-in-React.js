@@ -3,9 +3,19 @@
    /* background-color: rgb(156, 48, 48); */
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   gap: 2rem;
+   gap: 4rem 2rem;
+   /* column-gap: 3rem; */
 }
 
 .ul li {
    list-style-type: none;
+}
+
+h2 {
+   color: var(--color-titles-1);
+   font-family: var(--font-titles-1);
+   font-weight: 400;
+   font-size: 4rem;
+   margin-bottom: 1.5rem;
+   border-bottom: 1px solid #ccc;
 }

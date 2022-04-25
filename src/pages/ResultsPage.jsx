@@ -88,7 +88,14 @@ const ResultsPage = () => {
       );
    if (!resultsNotFound && !error) displayContent = displayData;
 
-   return <section className={classes.section}>{displayContent}</section>;
+   return (
+      <section className={classes.section}>
+         <h2>
+            Results for <span>{searchValue}</span>
+         </h2>
+         {displayContent}
+      </section>
+   );
 };
 
 export default ResultsPage;

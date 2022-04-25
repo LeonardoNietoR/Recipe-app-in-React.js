@@ -42,7 +42,11 @@ const SliderHomePage = (props) => {
 
    const imagesSlider = dataRecipes.map((recipe) => (
       <SplideSlide key={recipe.id}>
-         <CardContent data={recipe} numOfCards={props.numOfSlides} />
+         <CardContent
+            data={recipe}
+            slider={true}
+            numOfCards={props.numOfSlides}
+         />
       </SplideSlide>
    ));
 

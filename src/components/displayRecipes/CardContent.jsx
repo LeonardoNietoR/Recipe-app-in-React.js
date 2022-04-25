@@ -15,12 +15,12 @@ const defineSummaryText = (text) => {
 };
 
 const CardContent = (props) => {
+   const cardStyles = `${classes.container_card} ${
+      props.numOfCards === 3 ? classes.container_3cards : ""
+   } ${props.slider ? classes["container_card-slider"] : ""}`;
+
    return (
-      <Card
-         className={`${classes.container_card} ${
-            props.numOfCards === 3 ? classes.container_3cards : ""
-         }`}
-      >
+      <Card className={cardStyles}>
          <div className={classes.container_img}>
             <img
                className={classes.img}
