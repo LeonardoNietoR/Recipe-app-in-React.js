@@ -1,28 +1,112 @@
-import { useState, useCallback } from "react";
+import { useCallback, useReducer } from "react";
 
 const APP_KEY = process.env.REACT_APP_API_KEY.slice(0, -1);
-
 // Temporary email: hiriye6725@ovout.com Peo654321
 const APP_KEY_TEMP = "ea566ca2a41a4916b7da6de17a62b4f0";
 
+const initialState = {
+   recipesData: null,
+   error: null,
+   noResultsFound: false,
+   status: "pending",
+};
+
+const httpReducer = (state, action) => {
+   if (action.type === "SUCCESS" && action.locStorage === true) {
+      // console.log(action.dataRecipes);
+      return {
+         recipesData: action.dataRecipes,
+         error: null,
+         noResultsFound: false,
+         status: "completed",
+      };
+   }
+
+   if (action.type === "SUCCESS" && action.locStorage === false) {
+      const recipesArray = action.dataRecipes.recipes
+         ? action.dataRecipes.recipes
+         : action.dataRecipes.results;
+
+      if (recipesArray.length > 0) {
+         const dataRecipesFiltered = recipesArray.reduce((acc, recipe) => {
+            recipe.image !== undefined &&
+               acc.push({
+                  id: recipe.id,
+                  title: recipe.title,
+                  image: recipe.image,
+                  summary: recipe.summary,
+                  likes: recipe.aggregateLikes,
+                  time: recipe.readyInMinutes,
+                  dishTypes: recipe.dishTypes,
+                  servings: recipe.servings,
+                  ingredients: recipe.extendedIngredients,
+                  nutrition: recipe.nutrition.nutrients,
+                  diet: recipe.diets,
+                  cuisines: recipe.cuisines,
+               });
+            return acc;
+         }, []);
+
+         localStorage.setItem(
+            "results-page",
+            JSON.stringify(dataRecipesFiltered)
+         );
+
+         return {
+            recipesData: dataRecipesFiltered,
+            error: null,
+            noResultsFound: false,
+            status: "completed",
+         };
+      }
+      return {
+         recipesData: null,
+         error: null,
+         noResultsFound: true,
+         status: "completed",
+      };
+   }
+
+   if (action.type === "SEND") {
+      return {
+         recipesData: null,
+         error: null,
+         noResultsFound: false,
+         status: "pending",
+      };
+   }
+
+   if (action.type === "ERROR") {
+      return {
+         recipesData: null,
+         error: action.errorMessage,
+         noResultsFound: false,
+         status: "completed",
+      };
+   }
+
+   return state;
+};
+
 const useHttp = () => {
-   const [isLoading, setIsLoading] = useState(false);
-   const [error, setError] = useState(null);
+   const [httpState, dispatch] = useReducer(httpReducer, initialState);
 
-   const httpRequest = useCallback(async (requestConfig, applyData) => {
-      // setIsLoading(true);
-      setError(null);
+   const httpRequest = useCallback(async (requestConfig) => {
+      const locStorage = localStorage.getItem(`${requestConfig.locStorage}`);
 
-      const storage = localStorage.getItem(`${requestConfig.locStorage}`);
-
-      if (storage) {
-         applyData(JSON.parse(storage), true);
+      if (locStorage) {
+         dispatch({
+            type: "SUCCESS",
+            dataRecipes: JSON.parse(locStorage),
+            locStorage: true,
+         });
       } else {
          try {
+            dispatch({ type: "SEND" });
+
             const response = await fetch(
                `${requestConfig.url}&apiKey=${APP_KEY_TEMP}`
             );
-
             console.log(response);
             if (!response.ok) {
                throw new Error(`Failed request. Error ${response.status}`);
@@ -30,19 +114,19 @@ const useHttp = () => {
 
             const data = await response.json();
             console.log(data);
+            dispatch({ type: "SUCCESS", dataRecipes: data, locStorage: false });
 
-            applyData(data);
+            // applyData(data);
          } catch (err) {
             console.log("ERRRRROOOORRR:", err);
-            setError(err.message);
+            dispatch({ type: "ERROR", errorMessage: err.message });
          }
       }
-      // isLoading(false);
    }, []);
 
    return {
       httpRequest,
-      error,
+      ...httpState,
    };
 };
 

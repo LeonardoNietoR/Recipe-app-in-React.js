@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, Fragment } from "react";
 import classes from "./ResultsPage.module.css";
 import useHttp from "../hooks/use-http";
 import RecipeContext from "../store/recipe-context";
@@ -10,63 +10,23 @@ const NUMBER_OF_RESULTS = 12;
 // url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`,
 
 const ResultsPage = () => {
-   const { httpRequest, error } = useHttp();
-   const [recipesData, setRecipesData] = useState([]);
-   const [resultsNotFound, setResultsNotFound] = useState(false);
+   const { httpRequest, recipesData, error, noResultsFound, status } =
+      useHttp();
    const { searchValue } = useContext(RecipeContext);
+
+   useEffect(() => {
+      if (searchValue && searchValue.trim() !== "") {
+         httpRequest({
+            url: `https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&addRecipeInformation=true&sort=popularity&fillIngredients=true&addRecipeNutrition=true&instructionsRequired=true&number=${NUMBER_OF_RESULTS}`,
+
+            locStorage: searchValue,
+         });
+      }
+   }, [httpRequest, searchValue]);
 
    console.log(recipesData);
 
-   useEffect(() => {
-      const transformData = (dataRecipes, locStorage = false) => {
-         if (locStorage) {
-            console.log("if local storage");
-            setRecipesData(dataRecipes);
-            return;
-         }
-
-         if (!locStorage && dataRecipes && dataRecipes.results.length > 0) {
-            console.log("if no local storage and there is data recipes");
-            const dataRecipesFiltered = dataRecipes.results.reduce(
-               (acc, recipe) => {
-                  recipe.image !== undefined &&
-                     acc.push({
-                        id: recipe.id,
-                        title: recipe.title,
-                        image: recipe.image,
-                        summary: recipe.summary,
-                        likes: recipe.aggregateLikes,
-                        time: recipe.readyInMinutes,
-                     });
-
-                  return acc;
-               },
-               []
-            );
-
-            localStorage.setItem(
-               "results-page",
-               JSON.stringify(dataRecipesFiltered)
-            );
-            setRecipesData(dataRecipesFiltered);
-            return;
-         }
-
-         setResultsNotFound(true);
-      };
-      // if (searchValue && searchValue.trim() !== "") {
-      httpRequest(
-         {
-            url: `https://api.spoonacular.com/recipes/complexSearch?query=${"pasta"}&addRecipeInformation=true&number=${NUMBER_OF_RESULTS}`,
-            locStorage: "results-page",
-         },
-         transformData
-      );
-      // console.log(searchValue);
-      // }
-   }, [httpRequest]);
-
-   const displayData = (
+   const displayRecipes = (
       <ul className={classes.ul}>
          {recipesData &&
             recipesData.map((recipe) => (
@@ -79,23 +39,27 @@ const ResultsPage = () => {
 
    let displayContent;
 
-   if (error) displayContent = <p>{error}</p>;
-   if (resultsNotFound && !error)
+   if (error) displayContent = <p className={classes.error_message}>{error}</p>;
+   if (noResultsFound && !error)
       displayContent = (
-         <p>
-            Sorry, we could not find any results for <span>{searchValue}</span>
+         <p className={classes.notFound_message}>
+            Sorry - we could not find any results for{" "}
+            <span className={classes.search_reference}>"{searchValue}"</span>
          </p>
       );
-   if (!resultsNotFound && !error) displayContent = displayData;
 
-   return (
-      <section className={classes.section}>
-         <h2>
-            Results for <span>{searchValue}</span>
-         </h2>
-         {displayContent}
-      </section>
-   );
+   if (!noResultsFound && !error)
+      displayContent = (
+         <Fragment>
+            <h2>
+               Results for{" "}
+               <span className={classes.search_reference}>"{searchValue}"</span>
+            </h2>
+            {displayRecipes}
+         </Fragment>
+      );
+
+   return <section className={classes.section}>{displayContent}</section>;
 };
 
 export default ResultsPage;

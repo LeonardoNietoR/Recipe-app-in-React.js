@@ -2,6 +2,7 @@ import "./App.css";
 import Layout from "./components/layouts/Layout";
 import HomePage from "./pages/HomePage";
 import ResultsPage from "./pages/ResultsPage";
+import DetailPage from "./pages/DetailPage";
 import RecipeProvider from "./store/RecipeProvider";
 // import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function App() {
          <Layout>
             {/* <HomePage /> */}
             <ResultsPage />
+            {/* <DetailPage /> */}
 
             {/* <Switch>
             <Route path="/">

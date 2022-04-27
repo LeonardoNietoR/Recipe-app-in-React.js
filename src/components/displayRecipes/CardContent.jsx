@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import classes from "./CardContent.module.css";
+import RecipeContext from "../../store/recipe-context";
 import Card from "../UI/Card";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const defineSummaryText = (text) => {
-   // regex1: match all characters until the space # 20. To limit the string
+   // regex1: match all characters until the space # 16 (To limit the string)
    const regex1 = /^(.+? ){16}/g;
    const filterText = text.match(regex1);
    // regex2: match all html tags inside the string to delete them.
@@ -15,9 +17,15 @@ const defineSummaryText = (text) => {
 };
 
 const CardContent = (props) => {
+   const { updateItemSeletedID } = useContext(RecipeContext);
+
    const cardStyles = `${classes.container_card} ${
       props.numOfCards === 3 ? classes.container_3cards : ""
    } ${props.slider ? classes["container_card-slider"] : ""}`;
+
+   const selectRecipeHandler = () => {
+      updateItemSeletedID(props.data.id);
+   };
 
    return (
       <Card className={cardStyles}>
@@ -47,8 +55,10 @@ const CardContent = (props) => {
             </div>
          </div>
          <div className={classes.container_details}>
-            <span className={classes.img_title}>{props.data.title}</span>
-            <p className={classes.img_summary}>
+            <span onClick={selectRecipeHandler} className={classes.img_title}>
+               {props.data.title}
+            </span>
+            <p onClick={selectRecipeHandler} className={classes.img_summary}>
                {defineSummaryText(props.data.summary)}
             </p>
          </div>

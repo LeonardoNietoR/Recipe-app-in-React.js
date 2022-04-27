@@ -10,7 +10,7 @@
    --color-brand-red: red;
 
    --color-titles-1: rgb(84, 46, 46);
-   --color-paragraph-1: rgb(80, 40, 40);
+   --color-paragraph-1: #555;
 
    --color-white: #fff;
    --color-black: #000;
@@ -49,6 +49,7 @@ main {
 section {
    /* background-color: aquamarine; */
    width: 90%;
+   min-height: 40rem;
    height: auto;
    margin: 0 auto;
 }
