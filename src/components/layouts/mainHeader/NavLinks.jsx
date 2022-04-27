@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./NavLinks.module.css";
 
 const NavLinks = () => {
@@ -6,7 +7,7 @@ const NavLinks = () => {
       <nav className={classes.nav}>
          <ul>
             <li>
-               <a href="#">Home</a>
+               <Link to="/home">Home</Link>
             </li>
             <li>
                <a href="#">Recipes</a>

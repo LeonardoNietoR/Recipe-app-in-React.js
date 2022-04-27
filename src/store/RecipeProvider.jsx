@@ -3,21 +3,21 @@ import RecipeContext from "./recipe-context";
 
 const RecipeProvider = ({ children }) => {
    const [searchValue, setSearchValue] = useState();
-   const [idItemSelected, setIdItemSelected] = useState();
+   const [selectedRecipe, setSelectedRecipe] = useState();
 
    const updateSearchValueHandler = (value) => {
       setSearchValue(value);
    };
 
-   const updateItemSeletedIDHandler = (id) => {
-      setIdItemSelected(id);
+   const updateRecipeSelectedHandler = (recipe) => {
+      setSelectedRecipe(recipe);
    };
 
    const recipeContext = {
       searchValue: searchValue,
       updateSearchValue: updateSearchValueHandler,
-      itemSelectedID: idItemSelected,
-      updateItemSeletedID: updateItemSeletedIDHandler,
+      recipeSelected: selectedRecipe,
+      updateRecipeSelected: updateRecipeSelectedHandler,
    };
 
    return (

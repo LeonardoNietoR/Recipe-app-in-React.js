@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import classes from "./CardContent.module.css";
 import RecipeContext from "../../store/recipe-context";
 import Card from "../UI/Card";
@@ -17,15 +18,17 @@ const defineSummaryText = (text) => {
 };
 
 const CardContent = (props) => {
-   const { updateItemSeletedID } = useContext(RecipeContext);
+   const { updateRecipeSelected } = useContext(RecipeContext);
+   const navigate = useNavigate();
+
+   const selectRecipeHandler = () => {
+      updateRecipeSelected(props.data);
+      navigate("/detail", { replace: false });
+   };
 
    const cardStyles = `${classes.container_card} ${
       props.numOfCards === 3 ? classes.container_3cards : ""
    } ${props.slider ? classes["container_card-slider"] : ""}`;
-
-   const selectRecipeHandler = () => {
-      updateItemSeletedID(props.data.id);
-   };
 
    return (
       <Card className={cardStyles}>
@@ -54,11 +57,12 @@ const CardContent = (props) => {
                </span>
             </div>
          </div>
-         <div className={classes.container_details}>
-            <span onClick={selectRecipeHandler} className={classes.img_title}>
-               {props.data.title}
-            </span>
-            <p onClick={selectRecipeHandler} className={classes.img_summary}>
+         <div
+            className={classes.container_details}
+            onClick={selectRecipeHandler}
+         >
+            <span className={classes.img_title}>{props.data.title}</span>
+            <p className={classes.img_summary}>
                {defineSummaryText(props.data.summary)}
             </p>
          </div>

@@ -5,7 +5,7 @@ import SliderHomePage from "../components/displayRecipes/SliderHomePage";
 const HomePage = () => {
    const slider1Url =
       "https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&fillIngredients=true&addRecipeNutrition=true&instructionsRequired=true&number=12&sort=popularity";
-  
+
    return (
       <section>
          <div className={classes.collection}>
@@ -13,7 +13,7 @@ const HomePage = () => {
             <SliderHomePage
                numOfSlides={3}
                url={slider1Url}
-               locStorage="images"
+               locStorage="home_1"
             />
          </div>
          {/* <div className={classes.collection}>

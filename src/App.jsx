@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ResultsPage from "./pages/ResultsPage";
 import DetailPage from "./pages/DetailPage";
 import RecipeProvider from "./store/RecipeProvider";
-// import { Switch, Route, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 // start date: April 3rd 2022
 
@@ -22,18 +22,12 @@ function App() {
    return (
       <RecipeProvider>
          <Layout>
-            {/* <HomePage /> */}
-            <ResultsPage />
-            {/* <DetailPage /> */}
-
-            {/* <Switch>
-            <Route path="/">
-            <Redirect to="/home" />
-            </Route>
-            <Route path="/home">
-            <HomePage />
-            </Route>
-         </Switch> */}
+            <Routes>
+               <Route path="/" element={<Navigate to="/home" />} />
+               <Route path="/home" element={<HomePage />} />
+               <Route path="/results" element={<ResultsPage />} />
+               <Route path="/detail" element={<DetailPage />} />
+            </Routes>
          </Layout>
       </RecipeProvider>
    );

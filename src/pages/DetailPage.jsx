@@ -1,17 +1,11 @@
-import { useEffect } from "react";
-import useHttp from "../hooks/use-http";
-
-// options to make http request:
-const one =
-   "https://api.spoonacular.com/recipes/716429/information?includeNutrition=false";
+import { useContext } from "react";
+import classes from "./DetailPage.module.css";
+import RecipeContext from "../store/recipe-context";
 
 const DetailPage = () => {
-   // const { httpRequest } = useHttp();
+   const { recipeSelected } = useContext(RecipeContext);
 
-   // useEffect(() => {
-   //    httpRequest();
-   // }, [httpRequest]);
-
+   console.log(recipeSelected);
    return <section>Hello from detail page</section>;
 };
 

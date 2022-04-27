@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import classes from "./InputSearch.module.css";
 import { ImSearch } from "react-icons/im";
 import RecipeContext from "../../../store/recipe-context";
@@ -6,6 +7,7 @@ import RecipeContext from "../../../store/recipe-context";
 const InputSearch = (props) => {
    const [inputValue, setInputValue] = useState();
    const recipeCtx = useContext(RecipeContext);
+   const navigate = useNavigate();
 
    const onChangeHandler = (e) => {
       setInputValue(e.target.value);
@@ -13,7 +15,9 @@ const InputSearch = (props) => {
 
    const searchSubmitHandler = (e) => {
       e.preventDefault();
+      navigate("/results", { replace: false });
       recipeCtx.updateSearchValue(inputValue);
+      // setInputValue("");
    };
    return (
       <form
@@ -24,6 +28,7 @@ const InputSearch = (props) => {
             className={classes.input}
             type="text"
             placeholder="Search a recipe"
+            // value={inputValue}
             onChange={onChangeHandler}
          />
          <button className={classes.button}>

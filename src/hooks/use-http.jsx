@@ -12,7 +12,7 @@ const initialState = {
 };
 
 const httpReducer = (state, action) => {
-   if (action.type === "SUCCESS" && action.locStorage === true) {
+   if (action.type === "STORAGE") {
       // console.log(action.dataRecipes);
       return {
          recipesData: action.dataRecipes,
@@ -22,7 +22,7 @@ const httpReducer = (state, action) => {
       };
    }
 
-   if (action.type === "SUCCESS" && action.locStorage === false) {
+   if (action.type === "SUCCESS") {
       const recipesArray = action.dataRecipes.recipes
          ? action.dataRecipes.recipes
          : action.dataRecipes.results;
@@ -48,7 +48,7 @@ const httpReducer = (state, action) => {
          }, []);
 
          localStorage.setItem(
-            "results-page",
+            action.locStorage,
             JSON.stringify(dataRecipesFiltered)
          );
 
@@ -96,9 +96,9 @@ const useHttp = () => {
 
       if (locStorage) {
          dispatch({
-            type: "SUCCESS",
+            type: "STORAGE",
             dataRecipes: JSON.parse(locStorage),
-            locStorage: true,
+            locStorage: requestConfig.locStorage,
          });
       } else {
          try {
@@ -114,7 +114,11 @@ const useHttp = () => {
 
             const data = await response.json();
             console.log(data);
-            dispatch({ type: "SUCCESS", dataRecipes: data, locStorage: false });
+            dispatch({
+               type: "SUCCESS",
+               dataRecipes: data,
+               locStorage: requestConfig.locStorage,
+            });
 
             // applyData(data);
          } catch (err) {
