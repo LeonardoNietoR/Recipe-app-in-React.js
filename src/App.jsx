@@ -27,6 +27,7 @@ function App() {
                <Route path="/home" element={<HomePage />} />
                <Route path="/results" element={<ResultsPage />} />
                <Route path="/detail" element={<DetailPage />} />
+               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
          </Layout>
       </RecipeProvider>

@@ -96,7 +96,7 @@
    font-size: 1.5rem;
    text-transform: uppercase;
    font-weight: 700;
-   border-bottom: 1px solid rgb(145, 144, 144);
+   border-bottom: 1px solid var(--color-lines-1);
    margin: 1rem 0;
    padding: 0.3rem 0;
    cursor: pointer;

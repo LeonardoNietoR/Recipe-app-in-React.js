@@ -14,12 +14,12 @@
    background: linear-gradient(
          160deg,
          rgba(255, 255, 255, 0.97) 10%,
-         rgba(255, 255, 255, 0.644)
+         /* rgba(255, 255, 255, 0.644) */ rgba(133, 148, 137, 0.581)
       ),
-      url(../../../../project_imgs/chinh-le-duc-vuDXJ60mJOA-unsplash.jpg);
+      url(../../../../project_imgs/8a5100c7919128817aff8d2c1a9ae86d.jpg);
 
-   background-size: cover;
-   background-position: 30% 25%;
+   background-size: 110%;
+   background-position: 0% 37%;
    display: flex;
    justify-content: space-around;
    align-items: center;

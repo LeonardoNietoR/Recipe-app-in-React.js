@@ -8,6 +8,9 @@ const HomePage = () => {
 
    return (
       <section>
+         <div className={classes["container_initial-message"]}>
+            <span>Find more than 300.000 recipes around the world!</span>
+         </div>
          <div className={classes.collection}>
             <h2>Popular picks</h2>
             <SliderHomePage
