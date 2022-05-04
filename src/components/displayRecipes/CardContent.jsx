@@ -40,21 +40,21 @@ const CardContent = (props) => {
             />
             <div className={classes.img_filter}></div>
             <div className={classes.container_timeLikes}>
-               <span className={classes.time}>
+               <div className={classes.time}>
                   <span>
                      <BiTime />
                   </span>
                   <span>{props.data.time}</span> <span>min</span>
-               </span>
+               </div>
 
-               <span className={classes.likes}>
+               <div className={classes.likes}>
                   {/* <BsSuitHeartFill /> */}
                   {/* <BsSuitHeart /> */}
                   <span>
                      <BiLike />
                   </span>
                   <span>{props.data.likes}</span>
-               </span>
+               </div>
             </div>
          </div>
          <div

@@ -37,12 +37,14 @@ const httpReducer = (state, action) => {
                   summary: recipe.summary,
                   likes: recipe.aggregateLikes,
                   time: recipe.readyInMinutes,
-                  dishTypes: recipe.dishTypes,
                   servings: recipe.servings,
+                  dishTypes: recipe.dishTypes,
                   ingredients: recipe.extendedIngredients,
+                  instructions: recipe.analyzedInstructions,
                   nutrition: recipe.nutrition.nutrients,
                   diet: recipe.diets,
                   cuisines: recipe.cuisines,
+                  source: recipe.sourceUrl,
                });
             return acc;
          }, []);

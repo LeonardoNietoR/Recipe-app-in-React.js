@@ -24,7 +24,6 @@
 .container_description {
    width: 60%;
    padding: 4%;
-   font-family: var(--font-paragraph-1);
    /* background-color: var(--color-white); */
    border: 2px solid purple;
 }
@@ -44,10 +43,18 @@
    line-height: 4.3rem;
 }
 
-.summary {
-   max-width: 45rem;
-   font-size: 1.9rem;
-   color: var(--color-paragraph-1);
-   border: 2px solid red;
-   line-height: 2.5rem;
+.container_times-likes-servings {
+   width: 30rem;
+   height: auto;
+   background-color: var(--color-background-likes);
+   color: var(--color-white);
+   display: flex;
+   justify-content: space-between;
+}
+
+.ingredients {
+   border: 1px solid rgb(30, 70, 145);
+}
+.instructions {
+   border: 1px solid rgb(15, 132, 32);
 }

@@ -6,6 +6,7 @@ const HomePage = () => {
    const slider1Url =
       "https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&fillIngredients=true&addRecipeNutrition=true&instructionsRequired=true&number=12&sort=popularity";
 
+      
    return (
       <section>
          <div className={classes["container_initial-message"]}>
