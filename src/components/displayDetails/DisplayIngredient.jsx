@@ -1,16 +1,18 @@
 import { Fragment } from "react";
-import classes from "./DisplayIngredient.module.css";
 
 const DisplayIngredient = ({ ingredients }) => {
    const ingredientsDisplay = ingredients.map((ingredient) => (
-      <li key={ingredient.id} className={classes.container_ingredient}>
+      <li
+         style={{ listStyleType: "none" }}
+         key={`${ingredient.name}_${ingredient.id}`}
+      >
          <span>{ingredient.amount}</span>
          <span> {ingredient.unit}</span>
          <span> {ingredient.originalName}</span>
       </li>
    ));
 
-   return <Fragment>{ingredientsDisplay}</Fragment>;
+   return <ul>{ingredientsDisplay}</ul>;
 };
 
 export default DisplayIngredient;

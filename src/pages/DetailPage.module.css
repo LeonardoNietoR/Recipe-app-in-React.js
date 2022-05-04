@@ -52,9 +52,30 @@
    justify-content: space-between;
 }
 
-.ingredients {
+.container_ingredients {
    border: 1px solid rgb(30, 70, 145);
 }
-.instructions {
+
+.container_ingredients,
+.container_instructions {
+   line-height: var(--line-height-paragraph);
+}
+
+.container_ingredients h3,
+.container_instructions h3,
+.container_nutrition h3 {
+   font-family: var(--font-titles-1);
+   color: var(--color-titles-1);
+   font-weight: 400;
+   font-size: 3.6rem;
+   line-height: 4rem;
+   margin-bottom: 2rem;
+}
+
+.container_instructions {
    border: 1px solid rgb(15, 132, 32);
+}
+
+.container_nutrition {
+   border: 1px solid rgb(181, 69, 9);
 }

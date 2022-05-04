@@ -1,14 +1,20 @@
 import { Fragment } from "react";
-import classes from "./DisplayInstructions.module.css";
+import styled from "styled-components";
 
 const DisplayInstructions = ({ instructions }) => {
    const instructionsDisplay = instructions.map((instruction) => (
-      <li className={classes.li} key={instruction.number}>
-         {instruction.step}
-      </li>
+      <li key={ instruction.number}>{instruction.step}</li>
    ));
 
-   return <Fragment>{instructionsDisplay}</Fragment>;
+   return <ContainerInstructions>{instructionsDisplay}</ContainerInstructions>;
 };
 
 export default DisplayInstructions;
+
+const ContainerInstructions = styled.ol`
+   & li {
+      font-size: 2rem;
+      font-family: var(--font-paragraph-1);
+      color: var(--color-paragraph-1);
+   }
+`;

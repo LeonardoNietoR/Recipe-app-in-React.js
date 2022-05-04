@@ -38,7 +38,7 @@ const httpReducer = (state, action) => {
                   likes: recipe.aggregateLikes,
                   time: recipe.readyInMinutes,
                   servings: recipe.servings,
-                  dishTypes: recipe.dishTypes,
+                  // dishTypes: recipe.dishTypes,
                   ingredients: recipe.extendedIngredients,
                   instructions: recipe.analyzedInstructions,
                   nutrition: recipe.nutrition.nutrients,

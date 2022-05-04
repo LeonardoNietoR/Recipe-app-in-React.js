@@ -12,7 +12,7 @@ const DisplaySummary = ({ textSummary }) => {
       fontSize: "1.9rem",
       color: "var(--color-paragraph-1)",
       border: "2px solid red",
-      lineHeight: "2.5rem",
+      // lineHeight: "2.5rem",
    };
 
    return <p style={stylesSummary}>{defineSummaryText(textSummary)}</p>;
