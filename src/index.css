@@ -7,7 +7,9 @@
    --color-brand-green-light: rgb(25, 175, 37);
    --color-brand-green-dark: rgb(33, 103, 22);
    --color-brand-brown: rgb(103, 45, 22);
-   --color-brand-orange: rgb(207, 204, 195);
+   --color-brand-orange: rgb(255, 157, 0);
+   --color-brand-red: rgb(225, 7, 7);
+
    --color-background-likes: rgba(255, 0, 0, 0.612);
 
    --color-titles-1: rgb(84, 46, 46);

@@ -15,8 +15,8 @@ export default DisplayCuisines;
 const ContainerList = styled.ul`
    display: flex;
    & li {
-      color: var(--color-paragraph-1);
-      background-color: var(--color-brand-orange);
+      color: var(--color-white);
+      background-color: var(--color-grey-dark);
       list-style-type: none;
       padding: 0.5rem 0.9rem;
       margin-right: 0.7rem;

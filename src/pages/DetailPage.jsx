@@ -8,7 +8,7 @@ import DisplayCuisines from "../components/displayDetails/DisplayCuisines";
 import DisplayNutrition from "../components/displayDetails/DisplayNutrition";
 import DisplayIngredients from "../components/displayDetails/DisplayIngredient";
 import DisplayInstructions from "../components/displayDetails/DisplayInstructions";
-import { BiTime, BiLike } from "react-icons/bi";
+import DisplayTimeLikesServ from "../components/displayDetails/DisplayTimeLikesServ";
 
 const DetailPage = () => {
    const { recipeSelected: recipe } = useContext(RecipeContext);
@@ -33,25 +33,12 @@ const DetailPage = () => {
                   <span className={classes.title}>{recipe.title}</span>
                </div>
 
-               <div className={classes["container_times-likes-servings"]}>
-                  <div className={classes.container_time}>
-                     <span>
-                        <BiTime />
-                     </span>
-                     <span>{recipe.time}</span>
-                     <span>min</span>
-                  </div>
-                  <div className={classes.container_likes}>
-                     <span>
-                        <BiLike />
-                     </span>
-                     <span>{recipe.likes}</span>
-                  </div>
-                  <span>{recipe.servings} Servings</span>
-               </div>
-               <div>
-                  <DisplayDiet diets={recipe.diet} />
-               </div>
+               <DisplayTimeLikesServ
+                  time={recipe.time}
+                  servings={recipe.servings}
+                  likes={recipe.likes}
+               />
+
                <DisplayCuisines cuisines={recipe.cuisines} />
                <DisplaySummary textSummary={recipe.summary} />
 
@@ -82,6 +69,7 @@ const DetailPage = () => {
                   .
                </p>
             </div>
+            <DisplayDiet diets={recipe.diet} />
          </section>
       );
    }

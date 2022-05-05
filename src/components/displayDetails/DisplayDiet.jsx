@@ -21,6 +21,10 @@ const DisplayDiet = ({ diets }) => {
 export default DisplayDiet;
 
 const ContainerList = styled.ul`
+   border: 2px solid rgb(175, 119, 41);
+   width: 20%;
+   padding: 4rem 1rem;
+
    & li {
       list-style-type: none;
    }

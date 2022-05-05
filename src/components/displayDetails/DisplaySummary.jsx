@@ -8,10 +8,11 @@ const defineSummaryText = (text) => {
 
 const DisplaySummary = ({ textSummary }) => {
    const stylesSummary = {
-      maxWidth: "45rem",
+      maxWidth: "50rem",
       fontSize: "1.9rem",
       color: "var(--color-paragraph-1)",
-      border: "2px solid red",
+      // border: "2px solid red",
+
       // lineHeight: "2.5rem",
    };
 

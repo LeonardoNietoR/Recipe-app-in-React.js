@@ -1,0 +1,39 @@
+.container_times-likes-servings {
+   max-width: 50rem;
+   height: auto;
+   /* padding: 2rem; */
+   margin: 2rem 0;
+   color: var(--color-titles-1);
+   display: flex;
+   justify-content: space-around;
+   /* border: 1px solid red; */
+}
+
+.container_items {
+   width: 11rem;
+   height: 11rem;
+   border-radius: 50%;
+   /* background-color: rgb(137, 199, 137); */
+   border: 1px solid var(--color-lines-1);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.container_items span {
+   width: auto;
+   color: var(--color-brand-red);
+   /* height: auto; */
+   display: block;
+   /* border: 1px solid #000; */
+}
+
+.container_items span:nth-of-type(1) {
+   height: 3.4rem;
+   font-size: 3.3rem;
+}
+
+.container_items span:not(:nth-of-type(1)) {
+   font-size: 1.7rem;
+}
