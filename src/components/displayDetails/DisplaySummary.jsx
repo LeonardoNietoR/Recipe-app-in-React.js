@@ -1,22 +1,59 @@
-import React from "react";
+import { useState, Fragment } from "react";
+import styled from "styled-components";
 
-const defineSummaryText = (text) => {
-   // regex1: match all html tags inside the string to delete them.
-   const regex1 = /<.+?>/g;
-   return `${text.trim()}`.replace(regex1, "");
+const defineSummaryText = (text, shorten = true) => {
+   // regex1: match all characters until the space # 16 (To limit the string)
+   const regex1 = /^(.+? ){50}/g;
+   // regex2: match all html tags inside the string to delete them.
+   const regex2 = /<.+?>/g;
+
+   if (!shorten) {
+      return `${text.trim()}`.replace(regex2, "");
+   }
+
+   const filterText = text.match(regex1);
+   return `${filterText[0].trim()}...`.replace(regex2, "");
 };
 
 const DisplaySummary = ({ textSummary }) => {
-   const stylesSummary = {
-      maxWidth: "50rem",
-      fontSize: "1.9rem",
-      color: "var(--color-paragraph-1)",
-      // border: "2px solid red",
+   const [summaryDisplay, setSummaryDisplay] = useState({
+      text: defineSummaryText(textSummary),
+      isLongText: true,
+   });
 
-      // lineHeight: "2.5rem",
+   const showCompleteTextHandler = () => {
+      setSummaryDisplay((prev) => ({
+         text: defineSummaryText(textSummary, !prev.isLongText),
+         isLongText: !prev.isLongText,
+      }));
    };
 
-   return <p style={stylesSummary}>{defineSummaryText(textSummary)}</p>;
+   console.log(summaryDisplay.isLongText);
+   return (
+      <Summary>
+         <p>{summaryDisplay.text}</p>
+         <button onClick={showCompleteTextHandler}>
+            {summaryDisplay.isLongText ? "More" : "Less"}
+         </button>
+      </Summary>
+   );
 };
 
 export default DisplaySummary;
+
+const Summary = styled.div`
+   max-width: 50rem;
+   font-size: 1.9rem;
+   color: var(--color-paragraph-1);
+   margin: 0 auto 2rem auto;
+
+   & button {
+      font-size: 2rem;
+      color: #333;
+      margin: 1rem 0 0 0;
+      padding: 0.2rem 2.5rem;
+      border: 1px solid #999;
+      border-radius: 5px;
+      cursor: pointer;
+   }
+`;

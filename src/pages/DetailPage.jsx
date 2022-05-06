@@ -26,13 +26,17 @@ const DetailPage = () => {
          <section className={classes.container_section}>
             <div className={classes.container_image}>
                <img src={recipe.image} alt={`Image_${recipe.id}`} />
+               <div className={classes.container_nutrition}>
+                  <h3>Nutrition</h3>
+                  <DisplayNutrition nutrition={recipe.nutrition} />
+               </div>
             </div>
 
             <div className={classes.container_description}>
                <div className={classes.container_title}>
                   <span className={classes.title}>{recipe.title}</span>
                </div>
-
+               <DisplayDiet diets={recipe.diet} />
                <DisplayTimeLikesServ
                   time={recipe.time}
                   servings={recipe.servings}
@@ -56,11 +60,6 @@ const DetailPage = () => {
                   </div>
                )}
 
-               <div className={classes.container_nutrition}>
-                  <h3>Nutrition</h3>
-                  <DisplayNutrition nutrition={recipe.nutrition} />
-               </div>
-
                <p>
                   Visit the source URL by clicking{" "}
                   <a target="_blank" href={recipe.source}>
@@ -69,7 +68,6 @@ const DetailPage = () => {
                   .
                </p>
             </div>
-            <DisplayDiet diets={recipe.diet} />
          </section>
       );
    }

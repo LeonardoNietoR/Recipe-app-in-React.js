@@ -21,16 +21,28 @@ const DisplayDiet = ({ diets }) => {
 export default DisplayDiet;
 
 const ContainerList = styled.ul`
-   border: 2px solid rgb(175, 119, 41);
-   width: 20%;
-   padding: 4rem 1rem;
+   max-width: 40rem;
+   margin: 2rem auto;
 
    & li {
+      margin-bottom: 0.4rem;
       list-style-type: none;
+      // border: 1px solid #000;
+      display: flex;
+      align-items: center;
    }
 
    & .check_icon {
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 0 0.6rem 0 0;
+      display: inline-block;
       color: rgb(9, 143, 58);
       font-size: 3rem;
+      // border: 1px solid red;
+   }
+
+   & span:nth-of-type(2) {
+      // border: 1px solid green;
    }
 `;

@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 
 const DisplayIngredient = ({ ingredients }) => {
-   const ingredientsDisplay = ingredients.map((ingredient) => (
+   const ingredientsDisplay = ingredients.map((ingredient, i) => (
       <li
          style={{ listStyleType: "none" }}
-         key={`${ingredient.name}_${ingredient.id}`}
+         key={`${ingredient.name}_${ingredient.id}_${i}`}
       >
          <span>{ingredient.amount}</span>
          <span> {ingredient.unit}</span>
