@@ -24,14 +24,6 @@ const DetailPage = () => {
       console.log("diet:", recipe.diet);
       return (
          <section className={classes.container_section}>
-            <div className={classes.container_image}>
-               <img src={recipe.image} alt={`Image_${recipe.id}`} />
-               <div className={classes.container_nutrition}>
-                  <h3>Nutrition</h3>
-                  <DisplayNutrition nutrition={recipe.nutrition} />
-               </div>
-            </div>
-
             <div className={classes.container_description}>
                <div className={classes.container_title}>
                   <span className={classes.title}>{recipe.title}</span>
@@ -67,6 +59,13 @@ const DetailPage = () => {
                   </a>
                   .
                </p>
+            </div>
+            <div className={classes.container_image}>
+               <img src={recipe.image} alt={`Image_${recipe.id}`} />
+               <div className={classes.container_nutrition}>
+                  <h3>Nutrition</h3>
+                  <DisplayNutrition nutrition={recipe.nutrition} />
+               </div>
             </div>
          </section>
       );

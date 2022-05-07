@@ -9,7 +9,7 @@
    width: 40%;
    /* background-color: aquamarine; */
    padding: 6rem 0;
-   border: 2px solid rgb(175, 119, 41);
+   border: 2px solid #ddd;
    /* position: relative; */
 }
 
@@ -17,7 +17,7 @@
    max-width: 50rem;
    width: 85%;
    display: block;
-   margin: 0 auto 2rem auto;
+   margin: 0 auto 4rem auto;
    /* position: absolute;
    top: 5rem;
    right: 50%;
@@ -32,7 +32,7 @@
    width: 60%;
    padding: 6rem 0;
    /* background-color: var(--color-white); */
-   border: 2px solid purple;
+   border: 2px solid #ddd;
 }
 
 .container_title {
