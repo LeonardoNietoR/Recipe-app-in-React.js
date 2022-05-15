@@ -13,7 +13,10 @@ const DisplayCuisines = ({ cuisines }) => {
 export default DisplayCuisines;
 
 const ContainerList = styled.ul`
+   max-width: 55rem;
+   margin: 0 auto 3rem auto;
    display: flex;
+
    & li {
       color: var(--color-white);
       background-color: var(--color-grey-dark);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./MainHeader.module.css";
 import NavLinks from "./NavLinks";
 import LinksSocialNet from "./LinksSocialNet";

@@ -4,7 +4,7 @@
    --font-titles-1: "Cardo", serif;
    --font-paragraph-1: "Lato", sans-serif;
 
-   --color-brand-green-light: rgb(25, 175, 37);
+   --color-brand-green-light: rgb(21, 156, 32);
    --color-brand-green-dark: rgb(33, 103, 22);
    --color-brand-brown: rgb(103, 45, 22);
    --color-brand-orange: rgb(255, 157, 0);
@@ -21,7 +21,7 @@
    --color-black: #000;
    --color-grey-light: #eee;
    --color-grey-medium: #bbb;
-   --color-grey-dark: #999;
+   --color-grey-dark: rgb(87, 87, 87);
 
    --height-header: 15rem;
    --line-height-paragraph: 2.5rem;

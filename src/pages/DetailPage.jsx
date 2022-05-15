@@ -19,15 +19,13 @@ const DetailPage = () => {
    }, [recipe]);
 
    if (recipe) {
-      console.log("dishType:", recipe.dishTypes);
-      console.log("cuisine:", recipe.cuisines);
-      console.log("diet:", recipe.diet);
       return (
          <section className={classes.container_section}>
             <div className={classes.container_description}>
                <div className={classes.container_title}>
                   <span className={classes.title}>{recipe.title}</span>
                </div>
+               <DisplayCuisines cuisines={recipe.cuisines} />
                <DisplayDiet diets={recipe.diet} />
                <DisplayTimeLikesServ
                   time={recipe.time}
@@ -35,7 +33,6 @@ const DetailPage = () => {
                   likes={recipe.likes}
                />
 
-               <DisplayCuisines cuisines={recipe.cuisines} />
                <DisplaySummary textSummary={recipe.summary} />
 
                <div className={classes.container_ingredients}>
@@ -52,7 +49,7 @@ const DetailPage = () => {
                   </div>
                )}
 
-               <p>
+               <p className={classes.visit_url}>
                   Visit the source URL by clicking{" "}
                   <a target="_blank" href={recipe.source}>
                      HERE

@@ -42,10 +42,10 @@ const DisplaySummary = ({ textSummary }) => {
 export default DisplaySummary;
 
 const Summary = styled.div`
-   max-width: 50rem;
+   max-width: 55rem;
    font-size: 1.9rem;
    color: var(--color-paragraph-1);
-   margin: 0 auto 2rem auto;
+   margin: 0 auto 3rem auto;
 
    & button {
       font-size: 2rem;

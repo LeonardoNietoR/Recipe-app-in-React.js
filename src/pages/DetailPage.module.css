@@ -36,8 +36,8 @@
 }
 
 .container_title {
-   max-width: 50rem;
-   padding-bottom: 2rem;
+   max-width: 55rem;
+   padding-bottom: 1.8rem;
    margin: 0 auto 2rem auto;
    border-bottom: 1px solid var(--color-lines-1);
    /* background-color: rgb(207, 207, 222); */
@@ -45,10 +45,10 @@
 }
 
 .title {
-   font-size: 5rem;
+   font-size: 6rem;
    font-family: var(--font-titles-1);
    color: var(--color-titles-1);
-   line-height: 4.5rem;
+   line-height: 5.2rem;
 }
 
 .container_diet-likes {
@@ -59,15 +59,15 @@
 
 .container_ingredients,
 .container_instructions {
+   max-width: 55rem;
    margin: 0 auto 2rem auto;
-   max-width: 50rem;
    line-height: var(--line-height-paragraph);
    border: 1px solid #bbb;
-   padding: 1rem;
+   padding: 2rem;
 }
 
 .container_instructions {
-   padding-left: 3rem;
+   padding-left: 4rem;
 }
 
 .container_ingredients h3,
@@ -79,4 +79,9 @@
    font-size: 3.6rem;
    line-height: 4rem;
    margin-bottom: 2rem;
+}
+
+.visit_url {
+   max-width: 55rem;
+   margin: 0 auto 0 auto;
 }

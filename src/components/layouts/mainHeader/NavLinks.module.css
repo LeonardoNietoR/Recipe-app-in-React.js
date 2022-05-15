@@ -1,8 +1,8 @@
 .nav {
-   width: 50rem;
-   height: 3rem;
-   /* background-color: rgb(174, 200, 179); */
-   /* margin: 0 auto; */
+   width: 50%;
+   max-width: 55rem;
+   height: 100%;
+   /* background-color: blueviolet; */
    font-family: var(--font-paragraph-1);
    color: var(--color-white);
    position: absolute;
@@ -11,14 +11,36 @@
    transform: translateY(-50%);
 }
 
-.nav ul {
+.nav_ul {
+   height: 100%;
    display: flex;
    justify-content: space-between;
+   align-items: center;
    /* background-color: rgb(182, 134, 134); */
    font-size: 2rem;
    list-style-type: none;
 }
 
-.nav ul li a {
+.nav_li {
+   width: 12rem;
+   height: 100%;
+   position: relative;
+   /* background-color: rgb(171, 119, 22); */
+}
+
+/* .li_recipes {
+   background-color: red;
+} */
+
+.nav_a {
+   text-decoration: none;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
    color: inherit;
+}
+
+.nav_a:hover {
+   text-decoration: underline;
 }

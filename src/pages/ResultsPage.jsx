@@ -12,6 +12,7 @@ const NUMBER_OF_RESULTS = 12;
 const ResultsPage = () => {
    const { httpRequest, recipesData, error, noResultsFound, status } =
       useHttp();
+
    const { searchValue } = useContext(RecipeContext);
 
    useEffect(() => {
@@ -25,6 +26,7 @@ const ResultsPage = () => {
    }, [httpRequest, searchValue]);
 
    console.log(recipesData);
+   console.log(searchValue);
 
    const displayRecipes = (
       <ul className={classes.ul}>
