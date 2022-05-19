@@ -102,7 +102,11 @@ const RecipeTypesMenu = (props) => {
    );
 
    return (
-      <div className={classes.container_menu}>
+      <div
+         className={`${classes.container_menu} ${
+            !props.showMenu && classes.hide
+         }`}
+      >
          {displayCuisinesList}
          {displayDietList}
          {displayMealTypeList}

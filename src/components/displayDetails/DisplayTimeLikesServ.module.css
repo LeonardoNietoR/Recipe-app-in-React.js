@@ -32,8 +32,37 @@
 .container_items span:nth-of-type(1) {
    height: 3.4rem;
    font-size: 3.3rem;
+   cursor: pointer;
 }
 
 .container_items span:not(:nth-of-type(1)) {
    font-size: 1.7rem;
+}
+
+.container_items .pressed_like {
+   animation-name: likedPressed;
+   animation-duration: 0.3s;
+   animation-timing-function: ease-out;
+}
+
+@keyframes likedPressed {
+   0% {
+      transform: scale(100%);
+      color: var(--color-brand-red);
+   }
+
+   50% {
+      transform: scale(60%);
+      color: rgb(207, 97, 97);
+   }
+
+   90% {
+      transform: scale(140%);
+      color: rgb(155, 35, 35);
+   }
+
+   100% {
+      transform: scale(100%);
+      color: var(--color-brand-red);
+   }
 }

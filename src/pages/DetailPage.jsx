@@ -13,10 +13,9 @@ import DisplayTimeLikesServ from "../components/displayDetails/DisplayTimeLikesS
 const DetailPage = () => {
    const { recipeSelected: recipe } = useContext(RecipeContext);
    const navigate = useNavigate();
-
    useEffect(() => {
       !recipe && navigate("/home", { replace: true });
-   }, [recipe]);
+   }, [recipe, navigate]);
 
    if (recipe) {
       return (
@@ -61,7 +60,20 @@ const DetailPage = () => {
                <img src={recipe.image} alt={`Image_${recipe.id}`} />
                <div className={classes.container_nutrition}>
                   <h3>Nutrition</h3>
+                  <div className={classes.header_table}>
+                     <span></span>
+                     <span>APS*</span>
+                     <span>%DV*</span>
+                  </div>
                   <DisplayNutrition nutrition={recipe.nutrition} />
+                  <div className={classes.footer_table}>
+                     <p>* Amount Per Serving (APS)</p>
+                     <p>
+                        * The % Daily Value (DV) tells you how much a nutrient
+                        in a serving of food contributes to a daily diet. 2000
+                        calories a day is used for general nutrition advice.
+                     </p>
+                  </div>
                </div>
             </div>
          </section>

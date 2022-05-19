@@ -51,7 +51,12 @@ const DisplayNutrition = ({ nutrition }) => {
 export default DisplayNutrition;
 
 const ContainerNutrition = styled.div`
+   margin: 0 auto;
+   max-width: 42rem;
    border: 1.5px solid #888;
+   background-color: rgb(249, 223, 204);
+   // background-color: red;
+
 
    & li {
       width: 100%
@@ -60,7 +65,6 @@ const ContainerNutrition = styled.div`
       grid-template-columns: 50% 30% 20%;
    }
    & li span {
-      // border-bottom: 1px solid #999;
       // border-top: 1px solid #bbb;
       border-bottom: 1px solid #bbb;
       padding: .1rem .6rem;
@@ -69,7 +73,7 @@ const ContainerNutrition = styled.div`
    & li span:not(:nth-of-type(1)){
       font-size: 1.9rem;
       text-align: right;
-      border-left: 1px solid #ccc;
+      border-left: 1px solid #bbb;
    }
 
    & span.bold{

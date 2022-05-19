@@ -28,11 +28,8 @@
    /* background-color: rgb(171, 119, 22); */
 }
 
-/* .li_recipes {
-   background-color: red;
-} */
-
 .nav_a {
+   font-size: 2rem;
    text-decoration: none;
    position: absolute;
    top: 50%;

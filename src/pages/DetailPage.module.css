@@ -5,29 +5,6 @@
    display: flex;
 }
 
-.container_image {
-   width: 40%;
-   /* background-color: aquamarine; */
-   padding: 6rem 0;
-   border: 2px solid #ddd;
-   /* position: relative; */
-}
-
-.container_image img {
-   max-width: 50rem;
-   width: 85%;
-   display: block;
-   margin: 0 auto 4rem auto;
-   /* position: absolute;
-   top: 5rem;
-   right: 50%;
-   transform: translateX(50%); */
-}
-
-.container_nutrition {
-   padding: 0 3rem;
-}
-
 .container_description {
    width: 60%;
    padding: 6rem 0;
@@ -48,7 +25,7 @@
    font-size: 6rem;
    font-family: var(--font-titles-1);
    color: var(--color-titles-1);
-   line-height: 5.2rem;
+   line-height: 5.6rem;
 }
 
 .container_diet-likes {
@@ -84,4 +61,49 @@
 .visit_url {
    max-width: 55rem;
    margin: 0 auto 0 auto;
+}
+
+.container_image {
+   width: 40%;
+   /* background-color: aquamarine; */
+   padding: 6rem 0;
+   border: 2px solid #ddd;
+   /* position: relative; */
+}
+
+.container_image img {
+   max-width: 50rem;
+   width: 85%;
+   display: block;
+   margin: 0 auto 4rem auto;
+}
+
+.container_nutrition {
+   padding: 2rem 3rem;
+   background-color: rgb(255, 210, 178);
+}
+.container_nutrition h3 {
+   max-width: 42rem;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 4rem;
+   border-bottom: 1px solid #777;
+   /* background-color: aquamarine; */
+}
+
+.container_nutrition .header_table {
+   max-width: 42rem;
+   margin: 0 auto 0.4rem auto;
+   font-size: 1.85rem;
+   display: grid;
+   text-align: right;
+   grid-template-columns: 50% 30% 20%;
+}
+.container_nutrition .footer_table {
+   font-size: 1.7rem;
+   margin: 2rem 0;
+}
+.container_nutrition .footer_table p {
+   max-width: 42rem;
+   margin: 0.5rem auto 0 auto;
 }

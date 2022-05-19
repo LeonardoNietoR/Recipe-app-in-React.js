@@ -27,7 +27,7 @@ const NavLinks = () => {
                </Link>
             </li>
             <li
-               className={`${classes.li_recipes} ${classes.nav_li}`}
+               className={classes.nav_li}
                onMouseEnter={showRecipesMenuHandler}
                onMouseLeave={hideRecipesMenuHandler}
             >
@@ -38,9 +38,10 @@ const NavLinks = () => {
                >
                   Recipes
                </a>
-               {showRecipeTypesMenu && (
-                  <RecipeTypesMenu onClick={hideRecipesMenuHandler} />
-               )}
+               <RecipeTypesMenu
+                  onClick={hideRecipesMenuHandler}
+                  showMenu={showRecipeTypesMenu ? true : false}
+               />
             </li>
             <li className={classes.nav_li}>
                <a href="#" className={classes.nav_a}>
