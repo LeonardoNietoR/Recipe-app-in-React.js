@@ -12,7 +12,7 @@ const DisplayIngredient = ({ ingredients }) => {
             {/* {ingredient.amount} */}
             {parseFloat(ingredient.amount.toFixed(1))}
          </span>
-         <span className="bold"> {ingredient.unit}</span>
+         <span className="bold"> {ingredient.unit.toLowerCase()}</span>
          <span> {ingredient.originalName}</span>
       </li>
    ));
@@ -27,7 +27,7 @@ const ContainerIngredients = styled.ul`
       list-style-type: "none";
    }
    & li .bold {
-      font-weight: 700;
-      color: #333;
+      font-weight: 600;
+      color: #444;
    }
 `;

@@ -2,6 +2,10 @@
    width: 15rem;
    height: auto;
    color: #fff;
+   /* position: absolute;
+   top: 50%;
+   right: 7%;
+   transform: translateY(-50%); */
    /* background-color: rgb(91, 81, 81); */
 }
 
@@ -10,8 +14,8 @@
    justify-content: space-between;
 }
 .container_socialNetworkLinks li {
-   width: 3rem;
-   height: 3rem;
+   width: 3.4rem;
+   height: 3.4rem;
    background-color: rgb(26, 26, 51);
    border-radius: 50%;
    list-style-type: none;

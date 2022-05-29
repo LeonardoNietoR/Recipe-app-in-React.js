@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./NavLinks.module.css";
 import RecipeTypesMenu from "./RecipeTypesMenu";
+import LinksSocialNet from "./LinksSocialNet";
 
 const NavLinks = () => {
    const [showRecipeTypesMenu, setShowRecipeTypesMenu] = useState(false);

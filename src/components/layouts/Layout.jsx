@@ -1,20 +1,25 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import MainHeader from "./mainHeader/MainHeader";
 import Footer from "./Footer";
 import classes from "./Layout.module.css";
 
 const Layout = ({ children }) => {
+   const [showImageHomePage, setShowImageHomePage] = useState(true);
+
+   const imageHomePage = (
+      <div className={classes["container_initial-message"]}>
+         <span>Find more than 300.0000 recipes around the world!</span>
+      </div>
+   );
+
    return (
       <Fragment>
          <MainHeader />
-
+         {imageHomePage}
          <div
-            style={{
-               width: "100%",
-               height: "auto",
-               position: "absolute",
-               top: "calc(var(--height-header) + 2rem)",
-            }}
+            className={`${classes["container_main-footer"]} ${
+               showImageHomePage ? classes.showImageHome : ""
+            }`}
          >
             <main>{children}</main>
             <Footer />

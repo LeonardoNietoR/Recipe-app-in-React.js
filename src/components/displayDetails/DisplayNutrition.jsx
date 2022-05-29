@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const boldNutritionNames = [
-   "calories",
-   "fat",
-   "carbohydrates",
-   "cholesterol",
-   "sodium",
-   "protein",
-];
+// const boldNutritionNames = [
+//    "calories",
+//    "fat",
+//    "carbohydrates",
+//    "cholesterol",
+//    "sodium",
+//    "protein",
+// ];
 
-const exclude = "Net Carbohydrates";
+// const exclude = "Net Carbohydrates";
 
 const DisplayNutrition = ({ nutrition }) => {
    // console.log(nutrition);
@@ -55,7 +55,6 @@ const ContainerNutrition = styled.div`
    max-width: 42rem;
    border: 1.5px solid #888;
    background-color: rgb(249, 223, 204);
-   // background-color: red;
 
 
    & li {
@@ -65,7 +64,6 @@ const ContainerNutrition = styled.div`
       grid-template-columns: 50% 30% 20%;
    }
    & li span {
-      // border-top: 1px solid #bbb;
       border-bottom: 1px solid #bbb;
       padding: .1rem .6rem;
    }
