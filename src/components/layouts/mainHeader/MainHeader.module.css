@@ -13,14 +13,14 @@
    width: 100%;
    height: 65%;
    padding: 0 5rem;
-   background: linear-gradient(
+   background: linear-gradient(to Right Top, rgb(26, 78, 18), rgb(97, 142, 89));
+   /* background: linear-gradient(
       to Right Top,
       var(--color-brand-green-dark),
       rgb(97, 142, 89)
-   );
-   /* background-color: var(--color-brand-green-dark); */
-   background-size: 110%;
-   background-position: 0% 37%;
+   ); */
+   /* background-size: 110%; */
+   /* background-position: 0% 37%; */
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -49,17 +49,10 @@
    display: flex;
    justify-content: space-between;
 }
-.image {
-   width: 10rem;
-   height: 100%;
-   /* background-color: red; */
-   background: url(../../../../project_imgs/27301.png);
-   background-position: 30% 60%;
-   background-size: cover;
-}
 
 .lowerBlock {
    height: 35%;
    background-color: var(--color-brand-green-light);
    position: relative;
+   border-bottom: 1px solid rgb(197, 131, 9);
 }
