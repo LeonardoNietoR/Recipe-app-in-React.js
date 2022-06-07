@@ -24,16 +24,18 @@ const InputSearch = (props) => {
          onSubmit={searchSubmitHandler}
          className={`${props.className} ${classes.form}`}
       >
-         <input
-            className={classes.input}
-            type="text"
-            placeholder="Search a recipe"
-            // value={inputValue}
-            onChange={onChangeHandler}
-         />
-         <button className={classes.button}>
-            <ImSearch />
-         </button>
+         <div className={classes.container_input}>
+            <input
+               className={classes.input}
+               type="text"
+               placeholder="Search a recipe"
+               // value={inputValue}
+               onChange={onChangeHandler}
+            />
+            <button className={classes.button}>
+               <ImSearch />
+            </button>
+         </div>
       </form>
    );
 };

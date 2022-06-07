@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import classes from "./DisplayNutrition.module.css";
 
 const DisplayNutrition = ({ nutrition }) => {
    const displayNutrition = nutrition.map((item, i) => {
@@ -14,7 +14,7 @@ const DisplayNutrition = ({ nutrition }) => {
             name === "sodium" ||
             name === "protein"
          ) {
-            return "bold";
+            return classes.bold;
          }
          return "";
       };
@@ -29,40 +29,10 @@ const DisplayNutrition = ({ nutrition }) => {
    });
 
    return (
-      <ContainerNutrition>
+      <div className={classes.container_nutrition}>
          <ul>{displayNutrition}</ul>
-      </ContainerNutrition>
+      </div>
    );
 };
 
 export default DisplayNutrition;
-
-const ContainerNutrition = styled.div`
-   margin: 0 auto;
-   max-width: 42rem;
-   border: 1.5px solid #888;
-   background-color: rgb(249, 223, 204);
-
-
-   & li {
-      width: 100%
-      list-style-type: none;
-      display:grid;
-      grid-template-columns: 50% 30% 20%;
-   }
-   & li span {
-      border-bottom: 1px solid #bbb;
-      padding: .1rem .6rem;
-   }
-
-   & li span:not(:nth-of-type(1)){
-      font-size: 1.9rem;
-      text-align: right;
-      border-left: 1px solid #bbb;
-   }
-
-   & span.bold{
-      font-weight: 700;
-      color: #333;
-   }
-`;

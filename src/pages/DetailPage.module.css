@@ -15,9 +15,10 @@
 .container_title {
    max-width: 55rem;
    padding-bottom: 2.5rem;
+   /* padding: 2rem 0.6rem; */
    margin: 0 auto 3rem auto;
    border-bottom: 1px solid var(--color-lines-1);
-   /* background-color: rgb(207, 207, 222); */
+   /* border: 1px solid #ccc; */
    text-align: left;
 }
 
@@ -83,7 +84,7 @@
 
 .container_nutrition {
    padding: 2rem 3rem;
-   background-color: rgb(255, 210, 178);
+   background-color: rgb(253, 237, 132);
 }
 .container_nutrition h3 {
    width: 100%;
