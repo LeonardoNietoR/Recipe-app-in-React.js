@@ -7,8 +7,6 @@
    z-index: 10;
 }
 
-/* do it with grid. */
-
 .upperBlock {
    width: 100%;
    height: 65%;
@@ -27,9 +25,14 @@
 }
 
 .container_brandName {
-   width: 20rem;
+   width: auto;
+   padding: 0.1rem 1.6rem;
    font-family: var(--font-titles-1);
    font-weight: 400;
+   /* border: 1px solid var(--color-brand-green-light); */
+   border: 1px solid #777;
+   border-radius: 20px;
+   cursor: pointer;
 }
 
 .container_brandName span {
@@ -40,6 +43,7 @@
 
 .container_brandName span:nth-of-type(2) {
    color: rgb(244, 163, 13);
+   font-style: italic;
 }
 
 .container_input {

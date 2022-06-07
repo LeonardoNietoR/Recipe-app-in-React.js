@@ -1,20 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-// const boldNutritionNames = [
-//    "calories",
-//    "fat",
-//    "carbohydrates",
-//    "cholesterol",
-//    "sodium",
-//    "protein",
-// ];
-
-// const exclude = "Net Carbohydrates";
-
 const DisplayNutrition = ({ nutrition }) => {
-   // console.log(nutrition);
-
    const displayNutrition = nutrition.map((item, i) => {
       const nameItem = item.name.toLowerCase();
 

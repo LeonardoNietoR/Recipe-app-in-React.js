@@ -1,16 +1,27 @@
-import React from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import RecipeContext from "../../store/recipe-context";
 import { BsFillCheckCircleFill, BsFillPatchCheckFill } from "react-icons/bs";
 
 const DisplayDiet = ({ diets }) => {
+   const { updateSearchValue } = useContext(RecipeContext);
+   const navigate = useNavigate();
+
+   const selectDietHandler = (event) => {
+      updateSearchValue(event.target.dataset.diet);
+      navigate("/results", { replace: false });
+   };
+
    if (diets.length > 0) {
       const dietsList = diets.map((diet, i) => (
          <li key={`${diet}_${i}`}>
             <span className="check_icon">
                <BsFillPatchCheckFill />
-               {/* <BsFillCheckCircleFill /> */}
             </span>
-            <span>{diet}</span>
+            <span onClick={selectDietHandler} data-diet={diet}>
+               {diet}
+            </span>
          </li>
       ));
 
@@ -22,14 +33,18 @@ export default DisplayDiet;
 
 const ContainerList = styled.ul`
    max-width: 40rem;
-   margin: 2rem auto;
+   margin: 3rem auto;
 
    & li {
       margin-bottom: 0.4rem;
       list-style-type: none;
-      // border: 1px solid #000;
       display: flex;
       align-items: center;
+      cursor: pointer;
+   }
+
+   & li:hover {
+      text-decoration: underline;
    }
 
    & .check_icon {

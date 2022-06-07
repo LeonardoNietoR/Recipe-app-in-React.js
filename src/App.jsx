@@ -9,20 +9,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 // start date: April 3rd 2022
 
 function App() {
-   const text = "This is an example of a text. Once upon a time...";
-   // const regex = /.+?\./;
-   // // const regex4 = /.+(?=\s)/g;
-   // const regex5 = /^(.+? ){3}/g;
-   // // const countWords = text.split(" ");
-   // const matching4 = text.match(regex5);
-   // console.log(matching4);
-   // console.log("lehooo");
-   // const matching = text.match(regex);
-
-   const regex1 = /^(.+? ){9}/g;
-   const filteredText = text.match(regex1);
-   console.log(filteredText ? "valido regex" : "no valido regex");
-
    return (
       <RecipeProvider>
          <Layout>
