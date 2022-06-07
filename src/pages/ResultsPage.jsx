@@ -1,20 +1,22 @@
-import { useEffect, useContext, Fragment } from "react";
+import { useState, useEffect, useContext, Fragment } from "react";
 import classes from "./ResultsPage.module.css";
+import ReactPaginate from "react-paginate";
 import useHttp from "../hooks/use-http";
 import RecipeContext from "../store/recipe-context";
 import CardContent from "../components/displayRecipes/CardContent";
+import Spinner from "../components/UI/Spinner";
 
-const NUMBER_OF_RESULTS = 12;
-
-// url: `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${searchWord}`,
-// url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`,
+const NUMBER_OF_RESULTS = 36;
+const RECIPES_PER_PAGE = 12;
 
 const ResultsPage = () => {
+   const [pageNumber, setPageNumber] = useState(0);
+
    const { httpRequest, recipesData, error, noResultsFound, status } =
       useHttp();
 
    const { searchValue } = useContext(RecipeContext);
-
+   console.log(recipesData?.length);
    useEffect(() => {
       if (searchValue && searchValue.trim() !== "") {
          httpRequest({
@@ -25,17 +27,25 @@ const ResultsPage = () => {
       }
    }, [httpRequest, searchValue]);
 
-   console.log(recipesData);
-   console.log(searchValue);
+   const pagesVisited = pageNumber * RECIPES_PER_PAGE;
+
+   // pageCount: Total amount of pages
+   const pageCount = Math.ceil(recipesData?.length / RECIPES_PER_PAGE);
+
+   const changePage = ({ selected }) => {
+      setPageNumber(selected);
+   };
 
    const displayRecipes = (
       <ul className={classes.ul}>
          {recipesData &&
-            recipesData.map((recipe) => (
-               <li key={recipe.id}>
-                  <CardContent data={recipe} numOfCards={4} />
-               </li>
-            ))}
+            recipesData
+               .slice(pagesVisited, pagesVisited + RECIPES_PER_PAGE)
+               .map((recipe) => (
+                  <li key={recipe.id}>
+                     <CardContent data={recipe} numOfCards={4} />
+                  </li>
+               ))}
       </ul>
    );
 
@@ -61,7 +71,33 @@ const ResultsPage = () => {
          </Fragment>
       );
 
-   return <section className={classes.section}>{displayContent}</section>;
+   return (
+      <section className={classes.section}>
+         {status === "pending" ? (
+            <Spinner className={classes.spinner} />
+         ) : (
+            <Fragment>
+               {displayContent}
+               <ReactPaginate
+                  previousLabel="< Prev"
+                  nextLabel="Next >"
+                  pageCount={pageCount}
+                  onPageChange={changePage}
+                  containerClassName={
+                     recipesData.length <= 12
+                        ? classes.hide
+                        : classes.paginationBtns
+                  }
+                  previousLinkClassName={classes.previousBtn}
+                  nextLinkClassName={classes.nextBtn}
+                  disabledClassName={classes.paginationDisabled}
+                  activeClassName={classes.paginationActive}
+                  renderOnZeroPageCount={null}
+               />
+            </Fragment>
+         )}
+      </section>
+   );
 };
 
 export default ResultsPage;

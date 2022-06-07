@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from "react";
 
-const APP_KEY = process.env.REACT_APP_API_KEY.slice(0, -1);
+// const APP_KEY = process.env.REACT_APP_API_KEY.slice(0, -1);
 // Temporary email: hiriye6725@ovout.com Peo654321
 const APP_KEY_TEMP = "ea566ca2a41a4916b7da6de17a62b4f0";
 
@@ -13,7 +13,6 @@ const initialState = {
 
 const httpReducer = (state, action) => {
    if (action.type === "STORAGE") {
-      // console.log(action.dataRecipes);
       return {
          recipesData: action.dataRecipes,
          error: null,
@@ -121,8 +120,6 @@ const useHttp = () => {
                dataRecipes: data,
                locStorage: requestConfig.locStorage,
             });
-
-            // applyData(data);
          } catch (err) {
             console.log("ERRRRROOOORRR:", err);
             dispatch({ type: "ERROR", errorMessage: err.message });

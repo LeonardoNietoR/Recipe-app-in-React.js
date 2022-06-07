@@ -6,10 +6,14 @@ import Card from "../UI/Card";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
-const defineSummaryText = (text) => {
-   // regex1: match all characters until the space # 16 (To limit the string)
-   const regex1 = /^(.+? ){16}/g;
+const slimDownText = (text, amountWords) => {
+   // regex1: match all characters until the space specified in "amountWords" (To limit the amount of words in string)
+   const stringRegex1 = `^(.+? ){${amountWords}}`;
+   const regex1 = new RegExp(stringRegex1, "g");
    const filterText = text.match(regex1);
+
+   if (!filterText) return text;
+
    // regex2: match all html tags inside the string to delete them.
    const regex2 = /<.+?>/g;
    const finalText = `${filterText[0].trim()}...`.replace(regex2, "");
@@ -20,7 +24,6 @@ const defineSummaryText = (text) => {
 const CardContent = (props) => {
    const { updateRecipeSelected } = useContext(RecipeContext);
    const navigate = useNavigate();
-
    const selectRecipeHandler = () => {
       updateRecipeSelected(props.data);
       navigate("/detail", { replace: false });
@@ -61,9 +64,12 @@ const CardContent = (props) => {
             className={classes.container_details}
             onClick={selectRecipeHandler}
          >
-            <span className={classes.img_title}>{props.data.title}</span>
+            <span className={classes.img_title}>
+               {slimDownText(props.data.title, 7)}
+            </span>
+
             <p className={classes.img_summary}>
-               {defineSummaryText(props.data.summary)}
+               {slimDownText(props.data.summary, 15)}
             </p>
          </div>
          <span className={classes.bookmark}>

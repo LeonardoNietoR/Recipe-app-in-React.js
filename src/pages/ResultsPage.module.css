@@ -38,3 +38,60 @@ h2 {
    font-size: 3.4rem;
    text-align: left;
 }
+
+.spinner {
+   margin-top: 8rem;
+}
+
+/* PAGINATION ------------------------ */
+
+.paginationBtns {
+   width: 50%;
+   height: 5rem;
+   margin: 6rem auto 0 auto;
+   list-style-type: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.paginationBtns a:not(.nextBtn):not(.previousBtn):not(.hide) {
+   width: 4rem;
+   height: 4rem;
+   display: inline-block;
+   padding: 1rem;
+   margin: 0.5rem;
+   border: 1px solid #999;
+   color: #000;
+   cursor: pointer;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.paginationBtns a:not(.nextBtn):not(.previousBtn):not(.hide):focus {
+   color: #fff;
+   background-color: var(--color-brand-green-dark);
+}
+
+.paginationActive a:not(.nextBtn):not(.previousBtn):not(.hide) {
+   color: #fff;
+   background-color: var(--color-brand-green-dark);
+}
+
+.nextBtn,
+.previousBtn {
+   width: 8rem;
+   text-align: center;
+   display: inline-block;
+   cursor: pointer;
+}
+
+.paginationDisabled {
+   color: #ccc;
+}
+
+.hide {
+   display: none;
+}
