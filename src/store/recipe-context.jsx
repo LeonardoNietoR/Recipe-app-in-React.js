@@ -4,8 +4,9 @@ const RecipeContext = React.createContext({
    searchValue: "",
    updateSearchValue: () => {},
    recipeSelected: {},
-   updateRecipeSelected: ()=>{}
-
+   updateRecipeSelected: () => {},
+   bookmarkList: [],
+   updateBookmarkList: () => {},
 });
 
 export default RecipeContext;

@@ -5,19 +5,23 @@ import { ImSearch } from "react-icons/im";
 import RecipeContext from "../../../store/recipe-context";
 
 const InputSearch = (props) => {
-   const [inputValue, setInputValue] = useState();
+   const [inputValue, setInputValue] = useState("");
    const recipeCtx = useContext(RecipeContext);
    const navigate = useNavigate();
 
    const onChangeHandler = (e) => {
+      console.log(e.target.value);
       setInputValue(e.target.value);
    };
 
    const searchSubmitHandler = (e) => {
       e.preventDefault();
-      navigate("/results", { replace: false });
-      recipeCtx.updateSearchValue(inputValue);
-      // setInputValue("");
+
+      if (inputValue) {
+         navigate("/results", { replace: false });
+         recipeCtx.updateSearchValue(inputValue);
+         setInputValue("");
+      }
    };
    return (
       <form
@@ -29,7 +33,7 @@ const InputSearch = (props) => {
                className={classes.input}
                type="text"
                placeholder="Search a recipe"
-               // value={inputValue}
+               value={inputValue}
                onChange={onChangeHandler}
             />
             <button className={classes.button}>

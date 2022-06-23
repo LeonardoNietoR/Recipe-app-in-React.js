@@ -37,13 +37,13 @@ const httpReducer = (state, action) => {
                   likes: recipe.aggregateLikes,
                   time: recipe.readyInMinutes,
                   servings: recipe.servings,
-                  // dishTypes: recipe.dishTypes,
                   ingredients: recipe.extendedIngredients,
                   instructions: recipe.analyzedInstructions,
                   nutrition: recipe.nutrition.nutrients,
                   diet: recipe.diets,
                   cuisines: recipe.cuisines,
                   source: recipe.sourceUrl,
+                  bookmark: false,
                });
             return acc;
          }, []);

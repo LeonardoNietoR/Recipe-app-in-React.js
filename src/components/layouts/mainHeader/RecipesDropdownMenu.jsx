@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import classes from "./RecipeTypesMenu.module.css";
+import classes from "./RecipesDropdownMenu.module.css";
 
 import RecipeContext from "../../../store/recipe-context";
 
@@ -41,7 +41,7 @@ const menuOptions = {
    ],
 };
 
-const RecipeTypesMenu = (props) => {
+const RecipesDropdownMenu = (props) => {
    const { updateSearchValue } = useContext(RecipeContext);
    const navigate = useNavigate();
 
@@ -114,4 +114,4 @@ const RecipeTypesMenu = (props) => {
    );
 };
 
-export default RecipeTypesMenu;
+export default RecipesDropdownMenu;

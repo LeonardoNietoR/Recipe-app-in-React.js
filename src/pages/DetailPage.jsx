@@ -13,6 +13,7 @@ import DisplayTimeLikesServ from "../components/displayDetails/DisplayTimeLikesS
 const DetailPage = () => {
    const { recipeSelected: recipe } = useContext(RecipeContext);
    const navigate = useNavigate();
+
    useEffect(() => {
       !recipe && navigate("/home", { replace: true });
    }, [recipe, navigate]);

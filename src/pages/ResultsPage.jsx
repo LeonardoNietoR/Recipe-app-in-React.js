@@ -16,7 +16,7 @@ const ResultsPage = () => {
       useHttp();
 
    const { searchValue } = useContext(RecipeContext);
-   console.log(recipesData?.length);
+
    useEffect(() => {
       if (searchValue && searchValue.trim() !== "") {
          httpRequest({
@@ -25,7 +25,9 @@ const ResultsPage = () => {
             locStorage: searchValue,
          });
       }
-   }, [httpRequest, searchValue]);
+
+      window.scrollTo(0, 0);
+   }, [httpRequest, searchValue, pageNumber]);
 
    const pagesVisited = pageNumber * RECIPES_PER_PAGE;
 
@@ -84,7 +86,7 @@ const ResultsPage = () => {
                   pageCount={pageCount}
                   onPageChange={changePage}
                   containerClassName={
-                     recipesData.length <= 12
+                     recipesData?.length <= 12
                         ? classes.hide
                         : classes.paginationBtns
                   }

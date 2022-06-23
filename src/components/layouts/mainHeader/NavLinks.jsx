@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./NavLinks.module.css";
-import RecipeTypesMenu from "./RecipeTypesMenu";
+import RecipesDropdownMenu from "./RecipesDropdownMenu";
+import BookmarkDropdownMenu from "./BookmarkDropdownMenu";
 import LinksSocialNet from "./LinksSocialNet";
 
 const NavLinks = () => {
@@ -39,7 +40,7 @@ const NavLinks = () => {
                >
                   Recipes
                </a>
-               <RecipeTypesMenu
+               <RecipesDropdownMenu
                   onClick={hideRecipesMenuHandler}
                   showMenu={showRecipeTypesMenu ? true : false}
                />
@@ -48,9 +49,10 @@ const NavLinks = () => {
                <a href="#" className={classes.nav_a}>
                   Bookmarks
                </a>
+               <BookmarkDropdownMenu />
             </li>
             <li className={classes.nav_li}>
-               <a href="#" className={classes.nav_a}>
+               <a href="#contact" className={classes.nav_a}>
                   Contact
                </a>
             </li>

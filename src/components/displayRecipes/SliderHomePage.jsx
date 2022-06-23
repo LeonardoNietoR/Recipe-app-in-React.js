@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import classes from "./SliderHomePage.module.css";
 import useHttp from "../../hooks/use-http";
 import CardContent from "./CardContent";

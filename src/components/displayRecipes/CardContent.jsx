@@ -1,32 +1,26 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./CardContent.module.css";
+import { slimDownText } from "../../hooks/use-utilities";
 import RecipeContext from "../../store/recipe-context";
 import Card from "../UI/Card";
 import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
-const slimDownText = (text, amountWords) => {
-   // regex1: match all characters until the space specified in "amountWords" (To limit the amount of words in string)
-   const stringRegex1 = `^(.+? ){${amountWords}}`;
-   const regex1 = new RegExp(stringRegex1, "g");
-   const filterText = text.match(regex1);
-
-   if (!filterText) return text;
-
-   // regex2: match all html tags inside the string to delete them.
-   const regex2 = /<.+?>/g;
-   const finalText = `${filterText[0].trim()}...`.replace(regex2, "");
-
-   return finalText;
-};
-
 const CardContent = (props) => {
-   const { updateRecipeSelected } = useContext(RecipeContext);
+   console.log(props.data.bookmark);
+   const { updateRecipeSelected, updateBookmarkList } =
+      useContext(RecipeContext);
    const navigate = useNavigate();
+
    const selectRecipeHandler = () => {
       updateRecipeSelected(props.data);
       navigate("/detail", { replace: false });
+      window.scrollTo(0, 0);
+   };
+
+   const clickBookmarkHandler = () => {
+      updateBookmarkList(props.data);
    };
 
    const cardStyles = `${classes.container_card} ${
@@ -72,8 +66,8 @@ const CardContent = (props) => {
                {slimDownText(props.data.summary, 15)}
             </p>
          </div>
-         <span className={classes.bookmark}>
-            <BsBookmark />
+         <span className={classes.bookmark} onClick={clickBookmarkHandler}>
+            {props.data.bookmark ? <BsBookmarkFill /> : <BsBookmark />}
          </span>
       </Card>
    );
