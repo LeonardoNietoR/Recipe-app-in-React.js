@@ -20,7 +20,7 @@ const CardContent = (props) => {
    };
 
    const clickBookmarkHandler = () => {
-      updateBookmarkList(props.data);
+      updateBookmarkList(props.data, true);
    };
 
    const cardStyles = `${classes.container_card} ${

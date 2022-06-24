@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import RecipeContext from "./recipe-context";
+
+const initialStateBookmark = [];
+
+const bookmarkReducer = (state, action) => {
+   if (action.type === "ADD") {
+      console.log("add");
+      return [...state, action.recipeData];
+   }
+
+   if (action.type === "REMOVE") {
+      console.log("remove");
+
+      return state.filter((el) => el.id !== action.id);
+   }
+};
 
 const RecipeProvider = ({ children }) => {
    const [searchValue, setSearchValue] = useState();
    const [selectedRecipe, setSelectedRecipe] = useState();
-   const [listBookmark, setListBookmark] = useState([]);
 
-   console.log(listBookmark);
+   const [bookmarkState, dispatch] = useReducer(
+      bookmarkReducer,
+      initialStateBookmark
+   );
+
    const updateSearchValueHandler = (value) => {
       setSearchValue(value);
    };
@@ -15,14 +33,10 @@ const RecipeProvider = ({ children }) => {
       setSelectedRecipe(recipe);
    };
 
-   const updateBookmarkListHandler = (recipe) => {
-      setListBookmark((prev) => {
-         const existing_bookmark = prev.some((el) => el.id === recipe.id);
+   const updateBookmarkListHandler = (recipe, add) => {
+      add && dispatch({ type: "ADD", recipeData: recipe });
 
-         if (!existing_bookmark) return [...prev, recipe];
-
-         return prev;
-      });
+      !add && dispatch({ type: "REMOVE", id: recipe });
    };
 
    const recipeContext = {
@@ -30,7 +44,7 @@ const RecipeProvider = ({ children }) => {
       updateSearchValue: updateSearchValueHandler,
       recipeSelected: selectedRecipe,
       updateRecipeSelected: updateRecipeSelectedHandler,
-      bookmarkList: listBookmark,
+      bookmarkList: bookmarkState,
       updateBookmarkList: updateBookmarkListHandler,
    };
 
