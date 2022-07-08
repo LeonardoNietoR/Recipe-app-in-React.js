@@ -3,21 +3,24 @@ import { Link } from "react-router-dom";
 import classes from "./NavLinks.module.css";
 import RecipesDropdownMenu from "./RecipesDropdownMenu";
 import BookmarkDropdownMenu from "./BookmarkDropdownMenu";
-import LinksSocialNet from "./LinksSocialNet";
 
 const NavLinks = () => {
    const [showRecipeTypesMenu, setShowRecipeTypesMenu] = useState(false);
+   const [showBookmark, setShowBookmark] = useState(false);
 
-   const showRecipesMenuHandler = () => {
-      setShowRecipeTypesMenu(true);
+   const showDropdown = (anchorName) => {
+      anchorName === "list-menus" && setShowRecipeTypesMenu(true);
+      anchorName === "bookmarks" && setShowBookmark(true);
    };
 
-   const hideRecipesMenuHandler = () => {
-      setShowRecipeTypesMenu(false);
+   const hideDropdown = (anchorName) => {
+      anchorName === "list-menus" && setShowRecipeTypesMenu(false);
+      anchorName === "bookmarks" && setShowBookmark(false);
    };
 
-   const toggleRecipesMenuHandler = () => {
-      setShowRecipeTypesMenu((prev) => !prev);
+   const toggleDropdown = (anchorName) => {
+      anchorName === "list-menus" && setShowRecipeTypesMenu((prev) => !prev);
+      anchorName === "bookmarks" && setShowBookmark((prev) => !prev);
    };
 
    return (
@@ -30,26 +33,37 @@ const NavLinks = () => {
             </li>
             <li
                className={classes.nav_li}
-               onMouseEnter={showRecipesMenuHandler}
-               onMouseLeave={hideRecipesMenuHandler}
+               onMouseEnter={showDropdown.bind(null, "list-menus")}
+               onMouseLeave={hideDropdown.bind(null, "list-menus")}
             >
                <a
                   href="#"
                   className={classes.nav_a}
-                  onClick={toggleRecipesMenuHandler}
+                  onClick={toggleDropdown.bind(null, "list-menus")}
                >
                   Recipes
                </a>
                <RecipesDropdownMenu
-                  onClick={hideRecipesMenuHandler}
-                  showMenu={showRecipeTypesMenu ? true : false}
+                  onClick={hideDropdown.bind(null, "list-menus")}
+                  showMenu={showRecipeTypesMenu || false}
                />
             </li>
-            <li className={classes.nav_li}>
-               <a href="#" className={classes.nav_a}>
+            <li
+               className={classes.nav_li}
+               onMouseEnter={showDropdown.bind(null, "bookmarks")}
+               onMouseLeave={hideDropdown.bind(null, "bookmarks")}
+            >
+               <a
+                  href="#"
+                  className={classes.nav_a}
+                  onClick={toggleDropdown.bind(null, "bookmarks")}
+               >
                   Bookmarks
                </a>
-               <BookmarkDropdownMenu />
+               <BookmarkDropdownMenu
+                  onClick={hideDropdown.bind(null, "bookmarks")}
+                  showBookmark={showBookmark || false}
+               />
             </li>
             <li className={classes.nav_li}>
                <a href="#contact" className={classes.nav_a}>

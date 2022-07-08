@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
          </div>
          <p className={classes.copyright}>
-            Copyright &copy; 2022 Leonardo Nieto R. All Rights Reserved
+            &copy; 2022 Leonardo Nieto R. All Rights Reserved
          </p>
       </footer>
    );

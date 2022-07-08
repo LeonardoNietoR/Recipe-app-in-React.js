@@ -17,8 +17,8 @@ const Layout = ({ children }) => {
    const imageHomePage = (
       <div className={classes["container_initial-message"]}>
          <div className={classes.image_home_message}></div>
-         <div className={classes.image_home_message}></div>
-         <span>Find more than 300.0000 recipes around the world!</span>
+         {/* <div className={classes.image_home_message}></div> */}
+         <span>Find more than 300.000 recipes around the world!</span>
       </div>
    );
 

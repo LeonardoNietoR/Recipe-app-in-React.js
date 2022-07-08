@@ -1,13 +1,22 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import classes from "./BookmarkDropdownMenu.module.css";
 import RecipeContext from "../../../store/recipe-context";
 import { slimDownText } from "../../../hooks/use-utilities";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
-const BookmarkDropdownMenu = () => {
-   const { bookmarkList, updateBookmarkList } = useContext(RecipeContext);
+const BookmarkDropdownMenu = (props) => {
+   const { bookmarkList, updateBookmarkList, updateRecipeSelected } =
+      useContext(RecipeContext);
+   const navigate = useNavigate();
 
-   console.log("bookmark list:", bookmarkList);
+   const selectRecipeHandler = (recipe) => {
+      updateRecipeSelected(recipe);
+      navigate("/detail", { replace: false });
+      window.scrollTo(0, 0);
+      props.onClick();
+   };
 
    const deleteBookmarkHandler = (id) => {
       updateBookmarkList(id, false);
@@ -20,7 +29,10 @@ const BookmarkDropdownMenu = () => {
                <div className={classes.container_img}>
                   <img src={recipe.image} alt={`img_{recipe.id}`} />
                </div>
-               <div className={classes.container_title}>
+               <div
+                  className={classes.container_title}
+                  onClick={selectRecipeHandler.bind(null, recipe)}
+               >
                   <span>{slimDownText(recipe.title, 6)}</span>
                </div>
                <button
@@ -35,7 +47,27 @@ const BookmarkDropdownMenu = () => {
       </ul>
    );
 
-   return <div className={classes.container_list}>{displayBookmarkList}</div>;
+   const messageNoBookmarks = (
+      <div className={classes.container_no_bookmark}>
+         <span>
+            <BsBookmark />
+         </span>
+         <span>No bookmarks yet</span>
+      </div>
+   );
+
+   const contentToBeDisplayed =
+      bookmarkList.length > 0 ? displayBookmarkList : messageNoBookmarks;
+
+   return (
+      <div
+         className={`${classes.container_list} ${
+            !props.showBookmark && classes.hide
+         }`}
+      >
+         {contentToBeDisplayed}
+      </div>
+   );
 };
 
 export default BookmarkDropdownMenu;

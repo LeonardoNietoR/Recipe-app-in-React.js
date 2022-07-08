@@ -5,13 +5,17 @@ const initialStateBookmark = [];
 
 const bookmarkReducer = (state, action) => {
    if (action.type === "ADD") {
-      console.log("add");
-      return [...state, action.recipeData];
+      const existing_recipe = state.some(
+         (el) => el.id === action.recipeData.id
+      );
+
+      if (!existing_recipe) {
+         return [...state, action.recipeData];
+      }
+      return state;
    }
 
    if (action.type === "REMOVE") {
-      console.log("remove");
-
       return state.filter((el) => el.id !== action.id);
    }
 };
