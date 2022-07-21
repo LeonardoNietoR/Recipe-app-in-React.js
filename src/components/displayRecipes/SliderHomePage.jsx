@@ -1,13 +1,16 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import classes from "./SliderHomePage.module.css";
 import useHttp from "../../hooks/use-http";
 import CardContent from "./CardContent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import Spinner from "../UI/Spinner";
+
 import "@splidejs/react-splide/css";
 
 const SliderHomePage = (props) => {
-   const { httpRequest, recipesData, error, noResultsFound, status } =
-      useHttp();
+   const { httpRequest, recipesData, error, status } = useHttp();
+
+   console.log(`status: ${status}`);
 
    useEffect(() => {
       httpRequest({
@@ -16,9 +19,11 @@ const SliderHomePage = (props) => {
       });
    }, [httpRequest]);
 
-   if (status === "pending") {
-      console.log("pending...");
-      return <p>Loading...</p>;
+   if (status === "pending" && props.showSpinner === true) {
+      return <Spinner />;
+   }
+   if (status === "pending" && props.showSpinner !== true) {
+      return "";
    }
 
    if (status === "completed" && error) {
@@ -26,7 +31,7 @@ const SliderHomePage = (props) => {
       return <p>{error}</p>;
    }
 
-   const imagesSlider = recipesData.map((recipe) => (
+   const imagesSlider = recipesData?.map((recipe) => (
       <SplideSlide key={recipe.id}>
          <CardContent
             data={recipe}

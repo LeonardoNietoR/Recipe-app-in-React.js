@@ -6,7 +6,7 @@
 }
 
 .container_initial-message {
-   width: 90%;
+   width: 93%;
    height: 20rem;
    /* background-color: rgb(7, 6, 3); */
    background-color: rgb(232, 232, 230);
@@ -35,29 +35,11 @@
          rgba(212, 202, 202, 0.243)
       ),
       url(../../../project_imgs/iv-therapy-phoenix-ingredients.png);
-   /* background: linear-gradient(
-         90deg,
-         rgba(242, 158, 121, 0.605),
-         rgba(232, 229, 229, 0.692)
-      ),
-      url(../../../project_imgs/27301.png.crdownload); */
+
    background-size: cover;
    background-position: 70% 80%;
    transform: rotateY(180deg);
 }
-
-/* .image_home_message:nth-of-type(2) {
-   width: 55rem;
-   background: linear-gradient(
-         220deg,
-         rgba(10, 9, 8, 0.93),
-         rgba(43, 10, 10, 0.849)
-      ),
-      url(../../../project_imgs/sharon-pittaway-KUZnfk-2DSQ-unsplash.jpg);
-   background-size: cover;
-   background-position: 10% 70%;
-   transform: rotateY(180deg);
-} */
 
 .container_initial-message span {
    width: 70%;
@@ -74,7 +56,7 @@
    font-weight: 200;
    font-style: italic;
    text-align: right;
-   text-shadow: 2px 5px 12px rgba(0, 0, 0, 0.76);
+   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.869);
    line-height: 6.9rem;
    background-color: rgba(199, 117, 17, 0.313);
    /* border: 1px solid rgba(184, 182, 179, 0.498); */

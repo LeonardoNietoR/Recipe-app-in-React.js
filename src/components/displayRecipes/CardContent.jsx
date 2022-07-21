@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./CardContent.module.css";
 import { slimDownText } from "../../hooks/use-utilities";
@@ -8,10 +8,20 @@ import { BiTime, BiLike } from "react-icons/bi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const CardContent = (props) => {
-   console.log(props.data.bookmark);
-   const { updateRecipeSelected, updateBookmarkList } =
+   const [bookmarkSelected, setBookmarkSelected] = useState();
+
+   const { updateRecipeSelected, updateBookmarkList, bookmarkList } =
       useContext(RecipeContext);
    const navigate = useNavigate();
+
+   useEffect(() => {
+      setBookmarkSelected(() => {
+         const existingBookmark = bookmarkList.some(
+            (el) => el.id === props.data.id
+         );
+         return existingBookmark;
+      });
+   }, [bookmarkList, props.data.id]);
 
    const selectRecipeHandler = () => {
       updateRecipeSelected(props.data);
@@ -20,7 +30,17 @@ const CardContent = (props) => {
    };
 
    const clickBookmarkHandler = () => {
-      updateBookmarkList(props.data, true);
+      if (!bookmarkSelected) {
+         console.log("no existe el bkm");
+         updateBookmarkList(props.data, true);
+         setBookmarkSelected(true);
+      }
+
+      if (bookmarkSelected) {
+         console.log("si existe el bkm");
+         updateBookmarkList(props.data.id, false);
+         setBookmarkSelected(false);
+      }
    };
 
    const cardStyles = `${classes.container_card} ${
@@ -45,8 +65,6 @@ const CardContent = (props) => {
                </div>
 
                <div className={classes.likes}>
-                  {/* <BsSuitHeartFill /> */}
-                  {/* <BsSuitHeart /> */}
                   <span>
                      <BiLike />
                   </span>
@@ -67,7 +85,7 @@ const CardContent = (props) => {
             </p>
          </div>
          <span className={classes.bookmark} onClick={clickBookmarkHandler}>
-            {props.data.bookmark ? <BsBookmarkFill /> : <BsBookmark />}
+            {bookmarkSelected ? <BsBookmarkFill /> : <BsBookmark />}
          </span>
       </Card>
    );

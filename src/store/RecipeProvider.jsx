@@ -5,11 +5,9 @@ const initialStateBookmark = [];
 
 const bookmarkReducer = (state, action) => {
    if (action.type === "ADD") {
-      const existing_recipe = state.some(
-         (el) => el.id === action.recipeData.id
-      );
+      const existingRecipe = state.some((el) => el.id === action.recipeData.id);
 
-      if (!existing_recipe) {
+      if (!existingRecipe) {
          return [...state, action.recipeData];
       }
       return state;
@@ -38,6 +36,7 @@ const RecipeProvider = ({ children }) => {
    };
 
    const updateBookmarkListHandler = (recipe, add) => {
+      // console.log(`from the function: ${add}`);
       add && dispatch({ type: "ADD", recipeData: recipe });
 
       !add && dispatch({ type: "REMOVE", id: recipe });

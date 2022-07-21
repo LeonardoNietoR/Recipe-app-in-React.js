@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeContext from "../store/recipe-context";
 import classes from "./HomePage.module.css";
@@ -22,8 +22,8 @@ const HomePage = () => {
       navigate("/results", { replace: true });
    };
 
-   return (
-      <section>
+   const displaySliders = (
+      <Fragment>
          <div className={classes.collection}>
             <h2 onClick={searchTitleHandler} data-title="popular">
                Popular picks
@@ -32,6 +32,7 @@ const HomePage = () => {
                numOfSlides={3}
                url={slider1Url}
                locStorage="pork"
+               showSpinner={true}
             />
          </div>
 
@@ -43,6 +44,7 @@ const HomePage = () => {
                numOfSlides={4}
                url={slider2Url}
                locStorage="desserts"
+               showSpinner={false}
             />
          </div>
          <div className={classes.collection}>
@@ -53,18 +55,14 @@ const HomePage = () => {
                numOfSlides={4}
                url={slider3Url}
                locStorage="cocktails"
+               showSpinner={false}
             />
          </div>
-         {/* <div className={classes.collection}>
-            <h2>Ready in just 30 minutes!</h2>
-            <SliderHomePage
-               numOfSlides={4}
-               url={slider1Url}
-               locStorage="images"
-            />
-         </div> */}
-      </section>
+      </Fragment>
    );
+
+   // return <section>{showSpinner ? <Spinner /> : displaySliders}</section>;
+   return <section> {displaySliders}</section>;
 };
 
 export default HomePage;
