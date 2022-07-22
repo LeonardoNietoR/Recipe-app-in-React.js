@@ -54,12 +54,15 @@
 }
 
 .container_list li:hover {
-   background-color: var(--color-brand-green-light);
-   color: #444;
+   /* border: 1px solid var(--color-brand-green-light); */
+   background-color: var(--color-brand-orange);
+   /* background-color: rgb(235, 136, 23); */
+   border: 1px solid orange;
+   /* color: #444; */
 }
 .container_list a:hover {
-   color: #fff;
-   font-size: 2.05rem;
+   /* color: var(--color-brand-green-light); */
+   color: var(--color-white);
 }
 
 .hide {

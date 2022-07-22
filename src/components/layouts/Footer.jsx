@@ -8,7 +8,7 @@ const Footer = () => {
          <div className={classes.container_columns}>
             <div className={classes.column}>
                <h3 className={classes.brand_name}>Cook & Food</h3>
-               <p>Find more than 300.000 recipes around the world.</p>
+               <p>Find thousands of recipes around the world</p>
             </div>
             <div className={classes.column}>
                <h3 id="contact">Contact</h3>

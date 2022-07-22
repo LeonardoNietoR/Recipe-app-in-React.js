@@ -16,9 +16,9 @@
 .container_socialNetworkLinks li {
    width: 3.4rem;
    height: 3.4rem;
-   /* background-color: rgb(26, 26, 51); */
-   background-color: rgb(17, 15, 15);
-   border: 1px solid var(--color-brand-green-dark);
+   /* background-color: rgb(17, 15, 15); */
+   background-color: rgb(19, 72, 37);
+   /* border: 1px solid rgb(85, 94, 86); */
    border-radius: 50%;
    list-style-type: none;
    display: flex;
@@ -32,7 +32,7 @@
 
 .container_socialNetworkLinks li a {
    position: relative;
-   color: #ddd;
+   color: #eee;
 
    font-size: 1.5rem;
 }

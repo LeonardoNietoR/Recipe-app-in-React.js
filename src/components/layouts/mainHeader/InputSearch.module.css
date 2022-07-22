@@ -3,16 +3,20 @@
    /* background-color: aqua; */
    display: flex;
    justify-content: center;
-   align-items: center;
+   align-items: flex-end;
+   padding-bottom: 0.2rem;
 }
 
 .container_input {
-   height: 4.5rem;
+   height: 3.6rem;
    background-color: rgb(237, 231, 228);
    /* border: 3px solid green; */
    border-radius: 30px;
-   box-shadow: 2px 2px 9px rgba(255, 255, 255, 0.365);
    overflow: hidden;
+}
+
+.container_input:focus-within {
+   box-shadow: 1px 1px 9px rgba(255, 255, 255, 0.365);
 }
 
 .input {
@@ -28,18 +32,24 @@
    border-radius: 30px 35px 35px 30px;
 }
 
-/* .container_input input:active {
-   box-shadow: 2px 2px 9px rgba(255, 255, 255, 0.365);
-} */
-
 .button {
-   width: 5rem;
+   width: 6rem;
    height: 100%;
-   background-color: rgb(232, 145, 74);
-   font-size: 2.2rem;
+   background-color: var(--color-brand-orange);
+   font-size: 2rem;
    color: #333;
    border: #333;
    cursor: pointer;
    /* border: 1px solid #333; */
    border-radius: 0 30px 30px 0;
+}
+
+.slogan {
+   font-family: var(--font-titles-1);
+   font-style: italic;
+   font-size: 2.5rem;
+   color: #fff;
+   text-align: right;
+   margin-top: 0.4rem;
+   /* background-color: aquamarine; */
 }

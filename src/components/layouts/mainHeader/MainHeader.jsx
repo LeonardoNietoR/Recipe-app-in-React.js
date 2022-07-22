@@ -20,12 +20,10 @@ const MainHeader = () => {
                <span>cook</span>
                <span>&</span>
                <span>food</span>
-               <div className={classes.image}></div>
             </div>
-            {/* <div className={classes.container_input}> */}
+
             <InputSearch />
             <LinksSocialNet />
-            {/* </div> */}
          </div>
          <div className={classes.lowerBlock}>
             <NavLinks />
