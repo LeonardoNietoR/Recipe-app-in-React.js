@@ -4,7 +4,6 @@ import useHttp from "../../hooks/use-http";
 import CardContent from "./CardContent";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Spinner from "../UI/Spinner";
-
 import "@splidejs/react-splide/css";
 
 const SliderHomePage = (props) => {
@@ -17,7 +16,7 @@ const SliderHomePage = (props) => {
          url: props.url,
          locStorage: props.locStorage,
       });
-   }, [httpRequest]);
+   }, [httpRequest, props.url, props.locStorage]);
 
    if (status === "pending" && props.showSpinner === true) {
       return <Spinner />;
@@ -27,7 +26,6 @@ const SliderHomePage = (props) => {
    }
 
    if (status === "completed" && error) {
-      console.log("error!!!");
       return <p>{error}</p>;
    }
 

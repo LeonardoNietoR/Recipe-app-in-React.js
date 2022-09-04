@@ -48,7 +48,11 @@ const httpReducer = (state, action) => {
             return acc;
          }, []);
 
-         localStorage.setItem(
+         // localStorage.setItem(
+         //    action.locStorage,
+         //    JSON.stringify(dataRecipesFiltered)
+         // );
+         sessionStorage.setItem(
             action.locStorage,
             JSON.stringify(dataRecipesFiltered)
          );
@@ -93,7 +97,8 @@ const useHttp = () => {
    const [httpState, dispatch] = useReducer(httpReducer, initialState);
 
    const httpRequest = useCallback(async (requestConfig) => {
-      const locStorage = localStorage.getItem(`${requestConfig.locStorage}`);
+      // const locStorage = localStorage.getItem(`${requestConfig.locStorage}`);
+      const locStorage = sessionStorage.getItem(`${requestConfig.locStorage}`);
 
       if (locStorage) {
          dispatch({

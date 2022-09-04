@@ -9,13 +9,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 // start date: April 3rd 2022
 
 function App() {
-   // const arr1 = [1, 2, 3, 4];
-
-   // const ind = arr1.findIndex((el) => el === 3);
-
-   // const arr2 = arr1.splice(ind, 1);
-
-   // console.log(arr2);
+  
 
    return (
       <RecipeProvider>

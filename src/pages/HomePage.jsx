@@ -61,7 +61,6 @@ const HomePage = () => {
       </Fragment>
    );
 
-   // return <section>{showSpinner ? <Spinner /> : displaySliders}</section>;
    return <section> {displaySliders}</section>;
 };
 
