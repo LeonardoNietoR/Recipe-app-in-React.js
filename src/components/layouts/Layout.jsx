@@ -1,5 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Fragment } from "react";
 import MainHeader from "./mainHeader/MainHeader";
 import Footer from "./Footer";
 import classes from "./Layout.module.css";

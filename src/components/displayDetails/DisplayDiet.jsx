@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import RecipeContext from "../../store/recipe-context";
-import { BsFillCheckCircleFill, BsFillPatchCheckFill } from "react-icons/bs";
+import { BsFillPatchCheckFill } from "react-icons/bs";
 
 const DisplayDiet = ({ diets }) => {
    const { updateSearchValue } = useContext(RecipeContext);

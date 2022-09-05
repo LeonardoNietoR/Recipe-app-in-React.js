@@ -4,7 +4,7 @@ import classes from "./BookmarkDropdownMenu.module.css";
 import RecipeContext from "../../../store/recipe-context";
 import { slimDownText } from "../../../hooks/use-utilities";
 import { AiOutlineMinusCircle } from "react-icons/ai";
-import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
+import { BsBookmark } from "react-icons/bs";
 
 const BookmarkDropdownMenu = (props) => {
    const { bookmarkList, updateBookmarkList, updateRecipeSelected } =
