@@ -9,8 +9,6 @@ import "@splidejs/react-splide/css";
 const SliderHomePage = (props) => {
    const { httpRequest, recipesData, error, status } = useHttp();
 
-   console.log(`status: ${status}`);
-
    useEffect(() => {
       httpRequest({
          url: props.url,

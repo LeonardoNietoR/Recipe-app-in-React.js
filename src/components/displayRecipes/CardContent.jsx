@@ -31,13 +31,11 @@ const CardContent = (props) => {
 
    const clickBookmarkHandler = () => {
       if (!bookmarkSelected) {
-         console.log("no existe el bkm");
          updateBookmarkList(props.data, true);
          setBookmarkSelected(true);
       }
 
       if (bookmarkSelected) {
-         console.log("si existe el bkm");
          updateBookmarkList(props.data.id, false);
          setBookmarkSelected(false);
       }

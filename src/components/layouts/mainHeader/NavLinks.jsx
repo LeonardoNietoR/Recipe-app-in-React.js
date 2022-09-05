@@ -23,10 +23,14 @@ const NavLinks = () => {
       anchorName === "bookmarks" && setShowBookmark((prev) => !prev);
    };
 
+   const goUpHandler = () => {
+      window.scrollTo(0, 0);
+   };
+
    return (
       <nav className={classes.nav}>
          <ul className={classes.nav_ul}>
-            <li className={classes.nav_li}>
+            <li className={classes.nav_li} onClick={goUpHandler}>
                <Link className={classes.nav_a} to="/home">
                   Home
                </Link>

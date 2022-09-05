@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const DisplayIngredient = ({ ingredients }) => {
-   console.log(ingredients);
    const ingredientsDisplay = ingredients.map((ingredient, i) => (
       <li
          style={{ listStyleType: "none" }}

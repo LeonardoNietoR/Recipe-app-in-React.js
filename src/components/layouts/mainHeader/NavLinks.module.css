@@ -2,7 +2,6 @@
    width: 50%;
    max-width: 55rem;
    height: 100%;
-   /* background-color: blueviolet; */
    font-family: var(--font-paragraph-1);
    color: var(--color-white);
    position: absolute;
@@ -16,7 +15,6 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   /* background-color: rgb(182, 134, 134); */
    font-size: 2rem;
    list-style-type: none;
 }
@@ -25,7 +23,6 @@
    width: 12rem;
    height: 100%;
    position: relative;
-   /* background-color: rgb(171, 119, 22); */
 }
 
 .nav_a {

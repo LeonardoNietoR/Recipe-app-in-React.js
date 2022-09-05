@@ -18,7 +18,6 @@ const DisplayTimeLikesServ = (props) => {
                <BiTime />
             </span>
             <span>{props.time} min</span>
-            {/* <span>min</span> */}
          </div>
          <div className={classes.container_items}>
             <span>

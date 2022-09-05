@@ -36,7 +36,6 @@ const RecipeProvider = ({ children }) => {
    };
 
    const updateBookmarkListHandler = (recipe, add) => {
-      // console.log(`from the function: ${add}`);
       add && dispatch({ type: "ADD", recipeData: recipe });
 
       !add && dispatch({ type: "REMOVE", id: recipe });

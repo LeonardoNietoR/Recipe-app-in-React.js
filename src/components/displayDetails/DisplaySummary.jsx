@@ -28,7 +28,6 @@ const DisplaySummary = ({ textSummary }) => {
       }));
    };
 
-   console.log(summaryDisplay.isLongText);
    return (
       <Summary>
          <p>{summaryDisplay.text}</p>

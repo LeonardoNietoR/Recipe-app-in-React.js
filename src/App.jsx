@@ -1,4 +1,3 @@
-import "./App.css";
 import Layout from "./components/layouts/Layout";
 import HomePage from "./pages/HomePage";
 import ResultsPage from "./pages/ResultsPage";
@@ -6,11 +5,7 @@ import DetailPage from "./pages/DetailPage";
 import RecipeProvider from "./store/RecipeProvider";
 import { Route, Routes, Navigate } from "react-router-dom";
 
-// start date: April 3rd 2022
-
 function App() {
-  
-
    return (
       <RecipeProvider>
          <Layout>

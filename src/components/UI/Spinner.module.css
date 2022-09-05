@@ -33,7 +33,6 @@
    left: 50%;
    transform: translate(-50%, -50%);
    font-family: var(--font-paragraph-1);
-   /* transform: translateX(-50%); */
 }
 
 @keyframes spinnerOne {

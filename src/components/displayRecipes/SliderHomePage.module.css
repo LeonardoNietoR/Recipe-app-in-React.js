@@ -1,12 +1,6 @@
 .container_slider {
    width: 100%;
-   /* background-color: rgb(193, 222, 196); */
-   /* background-color: #ddd; */
+
    display: flex;
    justify-content: center;
-   /* overflow: visible; */
 }
-
-/* .splide__track {
-   overflow: visible;
-} */

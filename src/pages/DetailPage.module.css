@@ -1,24 +1,19 @@
 .container_section {
-   /* width: 9%; */
    background-color: var(--color-white);
-   /* background-color: rgb(196, 179, 156); */
    display: flex;
 }
 
 .container_description {
    width: 60%;
    padding: 6rem 0;
-   /* background-color: var(--color-white); */
    border: 2px solid #ddd;
 }
 
 .container_title {
    max-width: 55rem;
    padding-bottom: 2.5rem;
-   /* padding: 2rem 0.6rem; */
    margin: 0 auto 3rem auto;
    border-bottom: 1px solid var(--color-lines-1);
-   /* border: 1px solid #ccc; */
    text-align: left;
 }
 
@@ -32,8 +27,7 @@
 
 .container_diet-likes {
    display: flex;
-   /* justify-content: s; */
-   /* background-color: aquamarine; */
+ 
 }
 
 .container_ingredients,
@@ -69,10 +63,8 @@
 
 .container_image {
    width: 40%;
-   /* background-color: aquamarine; */
    padding: 6rem 0;
    border: 2px solid #ddd;
-   /* position: relative; */
 }
 
 .container_image img {
@@ -93,7 +85,6 @@
    margin-right: auto;
    margin-bottom: 4rem;
    border-bottom: 1px solid #777;
-   /* background-color: aquamarine; */
 }
 
 .container_nutrition .header_table {

@@ -1,8 +1,6 @@
 .header {
    width: 100vw;
    height: var(--height-header);
-   /* height: auto; */
-   /* background-color: rgb(239, 145, 105); */
    position: fixed;
    z-index: 10;
 }
@@ -16,13 +14,7 @@
       rgb(24, 92, 22),
       rgb(141, 193, 133)
    );
-   /* background: linear-gradient(
-      to Right Top,
-      var(--color-brand-green-dark),
-      rgb(97, 142, 89)
-   ); */
-   /* background-size: 110%; */
-   /* background-position: 0% 37%; */
+
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -33,14 +25,12 @@
    padding: 0.1rem 1.6rem;
    font-family: var(--font-titles-1);
    font-weight: 400;
-   /* border: 1px solid var(--color-brand-green-light); */
    border: 1px solid rgb(169, 166, 166);
    border-radius: 20px;
    cursor: pointer;
 }
 
 .container_brandName span {
-   /* font-family: inherit; */
    font-size: 5rem;
    color: var(--color-white);
 }
@@ -53,7 +43,6 @@
 .container_input {
    width: 72rem;
    height: auto;
-   /* background-color: aquamarine; */
    display: flex;
    justify-content: space-between;
 }

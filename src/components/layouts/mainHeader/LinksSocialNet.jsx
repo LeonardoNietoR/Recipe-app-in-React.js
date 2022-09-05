@@ -7,25 +7,25 @@ const LinksSocialNet = () => {
       <div className={classes.container_socialNetworkLinks}>
          <ul>
             <li>
-               <button type="button">
+               <a href="#react">
                   <BsFacebook />
-               </button>
+               </a>
             </li>
             <li>
-               <button type="button">
+               <a href="#react">
                   <BsTwitter />
-               </button>
+               </a>
             </li>
 
             <li>
-               <button type="button">
+               <a href="#react">
                   <BsInstagram />
-               </button>
+               </a>
             </li>
             <li>
-               <button type="button">
+               <a href="#react">
                   <BsYoutube />
-               </button>
+               </a>
             </li>
          </ul>
       </div>
