@@ -23,23 +23,6 @@
    overflow: hidden;
 }
 
-.image_home_message {
-   /* margin: 0 auto; */
-   /* margin-left: 3rem; */
-   height: 100%;
-   width: 60%;
-   background: linear-gradient(
-         90deg,
-         rgba(237, 230, 228, 0.347),
-         rgba(212, 202, 202, 0.243)
-      ),
-      url(../../../project_imgs/iv-therapy-phoenix-ingredients.png);
-
-   background-size: cover;
-   background-position: 70% 80%;
-   transform: rotateY(180deg);
-}
-
 .container_initial-message span {
    width: 70%;
    max-width: 92rem;
