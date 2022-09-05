@@ -59,7 +59,7 @@ const RecipesDropdownMenu = (props) => {
             {menuOptions.cuisines.map((cuisine, i) => (
                <li key={`${cuisine}_${i}`}>
                   <a
-                     href="#"
+                     href="#react"
                      data-name={cuisine}
                      onClick={setSearchValueHandler}
                   >
@@ -77,7 +77,11 @@ const RecipesDropdownMenu = (props) => {
          <ul>
             {menuOptions.diet.map((diet, i) => (
                <li key={`${diet}_${i}`}>
-                  <a href="#" data-name={diet} onClick={setSearchValueHandler}>
+                  <a
+                     href="#react"
+                     data-name={diet}
+                     onClick={setSearchValueHandler}
+                  >
                      {diet}
                   </a>
                </li>
@@ -92,7 +96,11 @@ const RecipesDropdownMenu = (props) => {
          <ul>
             {menuOptions["meal-type"].map((type, i) => (
                <li key={`${type}_${i}`}>
-                  <a href="#" data-name={type} onClick={setSearchValueHandler}>
+                  <a
+                     href="#react"
+                     data-name={type}
+                     onClick={setSearchValueHandler}
+                  >
                      {type}
                   </a>
                </li>

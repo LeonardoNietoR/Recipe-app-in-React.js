@@ -30,14 +30,14 @@
    background-color: rgb(93, 113, 98);
 }
 
-.container_socialNetworkLinks li a {
+.container_socialNetworkLinks li button {
    position: relative;
    color: #eee;
 
    font-size: 1.5rem;
 }
 
-.container_socialNetworkLinks li a svg {
+.container_socialNetworkLinks li button svg {
    position: absolute;
    top: 50%;
    left: 50%;

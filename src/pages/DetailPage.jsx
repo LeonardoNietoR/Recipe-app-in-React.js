@@ -51,7 +51,7 @@ const DetailPage = () => {
 
                <p className={classes.visit_url}>
                   Visit the source URL by clicking{" "}
-                  <a target="_blank" href={recipe.source}>
+                  <a target="_blank" rel="noreferrer" href={recipe.source}>
                      HERE
                   </a>
                   .

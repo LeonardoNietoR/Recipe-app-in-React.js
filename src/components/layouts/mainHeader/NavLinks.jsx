@@ -37,7 +37,7 @@ const NavLinks = () => {
                onMouseLeave={hideDropdown.bind(null, "list-menus")}
             >
                <a
-                  href="#"
+                  href="#react"
                   className={classes.nav_a}
                   onClick={toggleDropdown.bind(null, "list-menus")}
                >
@@ -54,7 +54,7 @@ const NavLinks = () => {
                onMouseLeave={hideDropdown.bind(null, "bookmarks")}
             >
                <a
-                  href="#"
+                  href="#react"
                   className={classes.nav_a}
                   onClick={toggleDropdown.bind(null, "bookmarks")}
                >
