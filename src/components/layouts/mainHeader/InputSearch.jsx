@@ -10,7 +10,6 @@ const InputSearch = (props) => {
    const navigate = useNavigate();
 
    const onChangeHandler = (e) => {
-      console.log(e.target.value);
       setInputValue(e.target.value);
    };
 

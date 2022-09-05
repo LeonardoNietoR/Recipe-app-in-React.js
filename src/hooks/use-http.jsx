@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from "react";
 
-const APP_KEY_TEMP = "ea566ca2a41a4916b7da6de17a62b4f0";
+const APP_KEY_TEMP = "f9f49567de4e441e89e5d4dc4fa0b78c";
 
 const initialState = {
    recipesData: null,
